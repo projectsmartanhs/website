@@ -1,0 +1,50 @@
+# PROJECT SMART-ANHS — Frontend Prototype
+
+A responsive HTML, CSS, and JavaScript interface prototype for the proposed
+AI-powered school management system of Alcantara National High School.
+
+## Included
+- Dashboard overview and school indicator cards
+- Seven SMART module navigation pages
+- Sample records, search, and status filtering
+- Add-record modal (session-only; not persisted)
+- Reports and settings preview pages
+- SMART Assistant interface preview
+- Responsive layout for desktop, tablet, and mobile
+
+## Run locally
+1. Extract the ZIP file.
+2. Open `index.html` in a modern browser.
+3. No build tools are required.
+
+You can also use Visual Studio Code with the Live Server extension.
+
+## GitHub Pages deployment
+1. Create a GitHub repository, for example `project-smart-anhs`.
+2. Upload `index.html`, `style.css`, `script.js`, and this README.
+3. In the repository, open **Settings → Pages**.
+4. Under Build and deployment, select **Deploy from a branch**.
+5. Choose the `main` branch and `/ (root)`, then Save.
+6. Wait for GitHub Pages to publish the site.
+
+## Important limitations
+This is a frontend demonstration only. It uses fictional sample figures and records.
+It does NOT include a real database, user login, role-based access control, AI service,
+secure file storage, audit logs, or persistent record management. Records added in
+the module page exist only in the current browser session and are not saved.
+
+Do not enter actual learner names, grades, attendance, personnel information,
+financial information, or other confidential school data.
+
+Before real school use, connect a properly configured backend (for example,
+Supabase), implement authentication and database-level Row Level Security (RLS),
+validate permissions for every role, add audit logging and backups, and complete
+the school's privacy and security review. Never put service-role keys or AI API
+keys in frontend JavaScript or a public GitHub repository.
+
+## Suggested next development steps
+1. Supabase authentication and role/permission model
+2. School-year, grade-level, section, learner, and personnel data model
+3. Secure CRUD workflows for each SMART module
+4. Document upload and report generation
+5. Server-side AI integration with access controls and human review

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#102c4c" />
+  <title>PROJECT SMART-ANHS | School Management System</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">S<span>+</span></div>
+        <div class="brand-copy">
+          <strong>SMART-ANHS</strong>
+          <small>PROJECT SMART</small>
+        </div>
+        <button class="icon-btn close-sidebar" id="closeSidebar" aria-label="Close menu">×</button>
+      </div>
+      <div class="school-label">ALCANTARA NATIONAL HIGH SCHOOL</div>
+      <nav class="nav-menu" aria-label="Main navigation">
+        <div class="nav-caption">WORKSPACE</div>
+        <button class="nav-link active" data-page="dashboard"><span class="nav-icon">▦</span> Dashboard</button>
+        <div class="nav-caption">SMART MODULES</div>
+        <button class="nav-link" data-page="admin"><span class="nav-icon">⌂</span> Smart Admin <span class="nav-count">01</span></button>
+        <button class="nav-link" data-page="learner"><span class="nav-icon">♧</span> Smart Learner</button>
+        <button class="nav-link" data-page="teacher"><span class="nav-icon">♙</span> Smart Teacher</button>
+        <button class="nav-link" data-page="instruction"><span class="nav-icon">▤</span> Smart Instruction</button>
+        <button class="nav-link" data-page="project"><span class="nav-icon">◈</span> Smart Project</button>
+        <button class="nav-link" data-page="resource"><span class="nav-icon">▣</span> Smart Resource</button>
+        <button class="nav-link" data-page="decision"><span class="nav-icon">✧</span> Smart Decision <span class="ai-pill">AI</span></button>
+        <div class="nav-caption">SYSTEM</div>
+        <button class="nav-link" data-page="reports"><span class="nav-icon">▧</span> Reports</button>
+        <button class="nav-link" data-page="settings"><span class="nav-icon">⚙</span> Settings</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon">✦</div>
+          <strong>SMART Assistant</strong>
+          <p>Explore school insights and organize your work.</p>
+          <button id="openAssistant">Open assistant <span>↗</span></button>
+        </div>
+        <div class="profile-mini">
+          <div class="avatar">AD</div>
+          <div><strong>School Administrator</strong><small>Demo account</small></div>
+          <span class="profile-dots">•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+          <div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumbPage">Dashboard</strong></div>
+        </div>
+        <div class="topbar-right">
+          <div class="academic-year"><span class="status-dot"></span> School Year 2026–2027 <span class="chevron">⌄</span></div>
+          <button class="icon-btn notification-btn" id="notificationBtn" aria-label="Notifications">♧<i></i></button>
+          <div class="top-user"><div class="avatar">AD</div><div><strong>Administrator</strong><small>School Head</small></div><span>⌄</span></div>
+        </div>
+      </header>
+
+      <div class="page-content">
+        <section class="page-section active" id="page-dashboard">
+          <div class="welcome-row">
+            <div>
+              <div class="eyebrow">WEDNESDAY, NOVEMBER 18, 2026 <span class="live-tag">● SYSTEM OVERVIEW</span></div>
+              <h1>Good day, Administrator <span class="wave">✦</span></h1>
+              <p class="muted">Here is your school's management overview for today.</p>
+            </div>
+            <button class="primary-btn" id="quickReport">＋ Generate school report</button>
+          </div>
+
+          <div class="hero-banner">
+            <div class="hero-content">
+              <div class="hero-kicker">PROJECT SMART-ANHS</div>
+              <h2>One School. Seven Smart Systems.<br><em>One Vision.</em></h2>
+              <p>Smart Management through Artificial Intelligence, Research, and Technology for an Innovative and Responsive School.</p>
+              <button class="hero-btn" data-go="decision">Explore SMART Decision <span>→</span></button>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+              <div class="hero-core"><span>SMART</span><b>ANHS</b><small>360°</small></div>
+              <div class="orbit-node node-a">✧</div><div class="orbit-node node-b">▦</div><div class="orbit-node node-c">♙</div>
+            </div>
+            <div class="hero-glow"></div>
+          </div>
+
+          <div class="section-heading">
+            <div><h2>School at a glance</h2><p class="muted">A snapshot of key school indicators.</p></div>
+            <button class="text-btn" data-go="reports">View all reports ↗</button>
+          </div>
+          <div class="stat-grid">
+            <article class="stat-card"><div class="stat-top"><span>Total learners</span><span class="stat-icon blue">♧</span></div><div class="stat-number">1,248</div><div class="stat-foot"><span class="trend positive">↗ 3.2%</span> <span>from previous year</span></div><div class="mini-bars"><i style="height:35%"></i><i style="height:48%"></i><i style="height:42%"></i><i style="height:62%"></i><i style="height:56%"></i><i style="height:78%"></i><i style="height:90%"></i></div></article>
+            <article class="stat-card"><div class="stat-top"><span>Teaching personnel</span><span class="stat-icon purple">♙</span></div><div class="stat-number">48</div><div class="stat-foot"><span class="trend positive">● Active</span> <span>personnel records</span></div><div class="stat-progress"><span style="width:88%"></span></div><small class="progress-label">88% profile completion</small></article>
+            <article class="stat-card"><div class="stat-top"><span>Average attendance</span><span class="stat-icon green">✓</span></div><div class="stat-number">94.6<span class="unit">%</span></div><div class="stat-foot"><span class="trend positive">↗ 1.8%</span> <span>this month</span></div><div class="sparkline"><svg viewBox="0 0 180 40" preserveAspectRatio="none"><polyline points="0,31 22,25 44,28 66,17 88,22 110,12 132,18 154,7 180,10"/></svg></div></article>
+            <article class="stat-card"><div class="stat-top"><span>Active school projects</span><span class="stat-icon orange">◈</span></div><div class="stat-number">12</div><div class="stat-foot"><span class="trend warning">4 in progress</span> <span>of 12 projects</span></div><div class="stacked-progress"><i></i><i></i><i></i></div><small class="progress-label">5 completed · 4 ongoing · 3 planned</small></article>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="panel performance-panel">
+              <div class="panel-heading"><div><h3>School performance overview</h3><p class="muted">Illustrative monthly indicators</p></div><select id="performancePeriod" aria-label="Performance period"><option>This school year</option><option>Previous school year</option></select></div>
+              <div class="chart-legend"><span><i class="legend-dot blue-dot"></i> Attendance</span><span><i class="legend-dot teal-dot"></i> Assessment completion</span></div>
+              <div class="chart-wrap">
+                <div class="y-labels"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div>
+                <div class="chart">
+                  <div class="grid-lines"><i></i><i></i><i></i><i></i><i></i></div>
+                  <svg viewBox="0 0 600 220" preserveAspectRatio="none" role="img" aria-label="Illustrative line chart showing attendance and assessment completion">
+                    <defs><linearGradient id="areaBlue" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#477fe8" stop-opacity=".18"/><stop offset="1" stop-color="#477fe8" stop-opacity="0"/></linearGradient></defs>
+                    <path d="M0 52 C55 45 65 70 120 60 S190 42 240 53 S300 65 360 38 S430 50 480 32 S550 35 600 20 L600 220 L0 220Z" fill="url(#areaBlue)"/>
+                    <path d="M0 52 C55 45 65 70 120 60 S190 42 240 53 S300 65 360 38 S430 50 480 32 S550 35 600 20" fill="none" stroke="#477fe8" stroke-width="3" vector-effect="non-scaling-stroke"/>
+                    <path d="M0 110 C55 100 65 120 120 103 S190 115 240 92 S300 108 360 88 S430 96 480 78 S550 90 600 68" fill="none" stroke="#20a89a" stroke-width="3" vector-effect="non-scaling-stroke"/>
+                    <g fill="#477fe8"><circle cx="0" cy="52" r="4"/><circle cx="120" cy="60" r="4"/><circle cx="240" cy="53" r="4"/><circle cx="360" cy="38" r="4"/><circle cx="480" cy="32" r="4"/><circle cx="600" cy="20" r="4"/></g>
+                  </svg>
+                  <div class="x-labels"><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span></div>
+                </div>
+              </div>
+            </article>
+            <article class="panel activity-panel">
+              <div class="panel-heading"><div><h3>Recent activities</h3><p class="muted">Latest updates across modules</p></div><button class="more-btn" aria-label="More activities">•••</button></div>
+              <div class="activity-list">
+                <div class="activity-item"><div class="activity-icon blue">▤</div><div><strong>School calendar updated</strong><p>Academic calendar · Demo Admin</p><small>Today, 9:20 AM</small></div></div>
+                <div class="activity-item"><div class="activity-icon green">♧</div><div><strong>Learner data reviewed</strong><p>Smart Learner · Demo Coordinator</p><small>Yesterday, 2:45 PM</small></div></div>
+                <div class="activity-item"><div class="activity-icon orange">◈</div><div><strong>Project status changed</strong><p>Smart Project · Demo Admin</p><small>Nov 16, 10:10 AM</small></div></div>
+                <div class="activity-item"><div class="activity-icon purple">♙</div><div><strong>Personnel record updated</strong><p>Smart Teacher · Demo HR</p><small>Nov 15, 3:30 PM</small></div></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="section-heading module-heading"><div><h2>Explore SMART modules</h2><p class="muted">Seven connected systems for responsive school management.</p></div></div>
+          <div class="module-grid">
+            <button class="module-card" data-go="admin"><span class="module-icon m-blue">⌂</span><span><strong>SMART ADMIN</strong><small>Administration & records</small></span><b>→</b></button>
+            <button class="module-card" data-go="learner"><span class="module-icon m-green">♧</span><span><strong>SMART LEARNER</strong><small>Learner monitoring</small></span><b>→</b></button>
+            <button class="module-card" data-go="teacher"><span class="module-icon m-purple">♙</span><span><strong>SMART TEACHER</strong><small>Personnel development</small></span><b>→</b></button>
+            <button class="module-card" data-go="instruction"><span class="module-icon m-teal">▤</span><span><strong>SMART INSTRUCTION</strong><small>Teaching & learning</small></span><b>→</b></button>
+            <button class="module-card" data-go="project"><span class="module-icon m-orange">◈</span><span><strong>SMART PROJECT</strong><small>Programs & projects</small></span><b>→</b></button>
+            <button class="module-card" data-go="resource"><span class="module-icon m-pink">▣</span><span><strong>SMART RESOURCE</strong><small>Facilities & resources</small></span><b>→</b></button>
+            <button class="module-card" data-go="decision"><span class="module-icon m-indigo">✧</span><span><strong>SMART DECISION</strong><small>AI decision support</small></span><b>→</b></button>
+          </div>
+          <footer class="footer">PROJECT SMART-ANHS <span>·</span> Smart Management through AI, Research, and Technology <span class="footer-right">Prototype interface · Sample data only</span></footer>
+        </section>
+
+        <section class="page-section" id="page-module">
+          <div class="module-page-head"><div class="eyebrow">PROJECT SMART-ANHS / MODULE</div><div class="module-title-row"><div class="large-module-icon" id="moduleIcon">⌂</div><div><h1 id="moduleTitle">SMART ADMIN</h1><p class="muted" id="moduleDescription">Centralized school administration and records.</p></div></div></div>
+          <div class="module-summary-grid" id="moduleSummary"></div>
+          <div class="panel module-workspace">
+            <div class="panel-heading"><div><h3 id="workspaceTitle">Module workspace</h3><p class="muted">Manage and review information in this module.</p></div><button class="primary-btn" id="addRecord">＋ Add new record</button></div>
+            <div class="toolbar"><div class="search-box"><span>⌕</span><input id="moduleSearch" type="search" placeholder="Search records..." /></div><select id="moduleFilter"><option value="all">All records</option><option value="Active">Active</option><option value="In progress">In progress</option><option value="Completed">Completed</option><option value="For review">For review</option></select></div>
+            <div class="table-wrap"><table><thead><tr><th>RECORD / ITEM</th><th>CATEGORY</th><th>LAST UPDATED</th><th>STATUS</th><th></th></tr></thead><tbody id="recordsBody"></tbody></table></div>
+            <div class="table-foot"><span id="recordCount">Showing sample records</span><span>Prototype data · Not connected to a database</span></div>
+          </div>
+          <div class="panel coming-panel"><div class="coming-icon">✦</div><div><h3>Designed for connected school data</h3><p class="muted">This prototype demonstrates the interface. Connect an authenticated backend and configure permissions before entering actual school records.</p></div></div>
+          <footer class="footer">PROJECT SMART-ANHS <span>·</span> Prototype interface <span class="footer-right">Sample data only</span></footer>
+        </section>
+
+        <section class="page-section" id="page-reports">
+          <div class="eyebrow">WORKSPACE / REPORTS</div><h1>Reports & documents</h1><p class="muted page-intro">Organize school reports and prepare downloadable summaries.</p>
+          <div class="report-grid">
+            <article class="panel report-card"><div class="report-symbol blue">▤</div><h3>School performance report</h3><p>Summary of key school indicators and accomplishments.</p><button class="outline-btn report-action">Prepare sample report →</button></article>
+            <article class="panel report-card"><div class="report-symbol green">♧</div><h3>Learner monitoring report</h3><p>Illustrative learner attendance and progress summary.</p><button class="outline-btn report-action">Prepare sample report →</button></article>
+            <article class="panel report-card"><div class="report-symbol purple">♙</div><h3>Personnel monitoring report</h3><p>Sample personnel and professional development summary.</p><button class="outline-btn report-action">Prepare sample report →</button></article>
+            <article class="panel report-card"><div class="report-symbol orange">◈</div><h3>Project accomplishment report</h3><p>Illustrative school programs and project status.</p><button class="outline-btn report-action">Prepare sample report →</button></article>
+          </div>
+          <footer class="footer">PROJECT SMART-ANHS <span>·</span> Prototype interface</footer>
+        </section>
+
+        <section class="page-section" id="page-settings">
+          <div class="eyebrow">SYSTEM / CONFIGURATION</div><h1>Settings</h1><p class="muted page-intro">Prototype application preferences and system information.</p>
+          <div class="settings-grid">
+            <article class="panel settings-card"><h3>School information</h3><label>School name<input value="Alcantara National High School" /></label><label>Application name<input value="PROJECT SMART-ANHS" /></label><label>School year<select><option>2026–2027</option><option>2025–2026</option></select></label><button class="primary-btn" id="saveSettings">Save demo settings</button></article>
+            <article class="panel settings-card"><h3>System information</h3><div class="setting-row"><span>Application version</span><strong>0.1.0 Prototype</strong></div><div class="setting-row"><span>Frontend</span><strong>HTML · CSS · JavaScript</strong></div><div class="setting-row"><span>Database connection</span><span class="status-chip pending">Not connected</span></div><div class="setting-row"><span>Authentication</span><span class="status-chip pending">Demo only</span></div><div class="notice-box">Do not enter real learner, personnel, financial, or other confidential information into this prototype.</div></article>
+          </div>
+          <footer class="footer">PROJECT SMART-ANHS <span>·</span> Prototype interface</footer>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head"><div><div class="eyebrow">PROJECT SMART-ANHS</div><h2 id="modalTitle">Add a record</h2></div><button class="icon-btn" id="closeModal" aria-label="Close dialog">×</button></div>
+      <form id="recordForm"><label>Record name<input id="recordName" required maxlength="90" placeholder="Enter a sample record name" /></label><label>Category<input id="recordCategory" required maxlength="60" placeholder="e.g. School activity" /></label><label>Status<select id="recordStatus"><option>Active</option><option>In progress</option><option>Completed</option><option>For review</option></select></label><div class="modal-actions"><button type="button" class="outline-btn" id="cancelModal">Cancel</button><button type="submit" class="primary-btn">Add sample record</button></div></form>
+    </div>
+  </div>
+  <div class="assistant-panel" id="assistantPanel">
+    <div class="assistant-head"><div class="assistant-avatar">✦</div><div><strong>SMART Assistant</strong><small>Prototype helper · Not connected to AI</small></div><button class="icon-btn" id="closeAssistant">×</button></div>
+    <div class="assistant-body"><div class="assistant-message">Hello! I'm the SMART Assistant interface preview. In the full system, this area can help authorized users summarize validated school data, prepare reports, and explore trends.</div><div class="assistant-note">AI responses are not enabled in this prototype. Connect a secure server-side AI service before deployment.</div></div>
+    <div class="assistant-input"><input disabled placeholder="AI assistant not connected" /><button disabled>↑</button></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
