@@ -56,3 +56,6 @@ keys in frontend JavaScript or a public GitHub repository.
 - SMART Decision: sample insights that wait for an official to accept or return them.
 - AI advisory-only notice added to the dashboard, assistant panel, and relevant modules.
 - Fixed the project counts so the dashboard and Smart Project agree (12 total: 5 completed, 4 ongoing, 3 planned).
+
+- Added the Alcantara National High School logo (`logo.png`) to the sidebar and as the browser tab icon (`favicon.png`). Upload both files with the rest when deploying.
+- Retheme to match the school logo (navy, gold, red, laurel green); fixed spacing of the added panels.
