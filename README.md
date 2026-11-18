@@ -48,3 +48,11 @@ keys in frontend JavaScript or a public GitHub repository.
 3. Secure CRUD workflows for each SMART module
 4. Document upload and report generation
 5. Server-side AI integration with access controls and human review
+
+## Version 0.2.0 changes
+- Every proposal feature now appears in each module's "Module scope" list, marked Preview or Planned.
+- SMART Learner: at-risk learner list with explainable flags and a human-reviewed intervention workflow (fictional codes, session only).
+- SMART Project / Resource: budget utilization tracker and canteen / feeding summary (view and report only; not official accounting records).
+- SMART Decision: sample insights that wait for an official to accept or return them.
+- AI advisory-only notice added to the dashboard, assistant panel, and relevant modules.
+- Fixed the project counts so the dashboard and Smart Project agree (12 total: 5 completed, 4 ongoing, 3 planned).

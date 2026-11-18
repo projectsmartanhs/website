@@ -71,7 +71,7 @@
             <div>
               <div class="eyebrow">WEDNESDAY, NOVEMBER 18, 2026 <span class="live-tag">● SYSTEM OVERVIEW</span></div>
               <h1>Good day, Administrator <span class="wave">✦</span></h1>
-              <p class="muted">Here is your school's management overview for today.</p>
+              <p class="muted">Here is your school's management overview for today.</p><div class="advisory-note">AI-generated recommendations are advisory only. Final decisions remain with authorized school officials.</div>
             </div>
             <button class="primary-btn" id="quickReport">＋ Generate school report</button>
           </div>
@@ -80,7 +80,7 @@
             <div class="hero-content">
               <div class="hero-kicker">PROJECT SMART-ANHS</div>
               <h2>One School. Seven Smart Systems.<br><em>One Vision.</em></h2>
-              <p>Smart Management through Artificial Intelligence, Research, and Technology for an Innovative and Responsive School.</p>
+              <p>Smart Management through Artificial Intelligence, Research, and Technology for an Innovative and Responsive School.</p><p class="hero-sub">An Integrated AI-Powered School Management, Learner Monitoring, and Decision Support System for Improved Educational Governance and Performance</p>
               <button class="hero-btn" data-go="decision">Explore SMART Decision <span>→</span></button>
             </div>
             <div class="hero-art" aria-hidden="true">
@@ -99,7 +99,7 @@
             <article class="stat-card"><div class="stat-top"><span>Total learners</span><span class="stat-icon blue">♧</span></div><div class="stat-number">1,248</div><div class="stat-foot"><span class="trend positive">↗ 3.2%</span> <span>from previous year</span></div><div class="mini-bars"><i style="height:35%"></i><i style="height:48%"></i><i style="height:42%"></i><i style="height:62%"></i><i style="height:56%"></i><i style="height:78%"></i><i style="height:90%"></i></div></article>
             <article class="stat-card"><div class="stat-top"><span>Teaching personnel</span><span class="stat-icon purple">♙</span></div><div class="stat-number">48</div><div class="stat-foot"><span class="trend positive">● Active</span> <span>personnel records</span></div><div class="stat-progress"><span style="width:88%"></span></div><small class="progress-label">88% profile completion</small></article>
             <article class="stat-card"><div class="stat-top"><span>Average attendance</span><span class="stat-icon green">✓</span></div><div class="stat-number">94.6<span class="unit">%</span></div><div class="stat-foot"><span class="trend positive">↗ 1.8%</span> <span>this month</span></div><div class="sparkline"><svg viewBox="0 0 180 40" preserveAspectRatio="none"><polyline points="0,31 22,25 44,28 66,17 88,22 110,12 132,18 154,7 180,10"/></svg></div></article>
-            <article class="stat-card"><div class="stat-top"><span>Active school projects</span><span class="stat-icon orange">◈</span></div><div class="stat-number">12</div><div class="stat-foot"><span class="trend warning">4 in progress</span> <span>of 12 projects</span></div><div class="stacked-progress"><i></i><i></i><i></i></div><small class="progress-label">5 completed · 4 ongoing · 3 planned</small></article>
+            <article class="stat-card"><div class="stat-top"><span>School projects</span><span class="stat-icon orange">◈</span></div><div class="stat-number">12</div><div class="stat-foot"><span class="trend warning">4 ongoing</span> <span>of 12 total projects</span></div><div class="stacked-progress"><i></i><i></i><i></i></div><small class="progress-label">5 completed · 4 ongoing · 3 planned</small></article>
           </div>
 
           <div class="dashboard-grid">
@@ -148,6 +148,8 @@
         <section class="page-section" id="page-module">
           <div class="module-page-head"><div class="eyebrow">PROJECT SMART-ANHS / MODULE</div><div class="module-title-row"><div class="large-module-icon" id="moduleIcon">⌂</div><div><h1 id="moduleTitle">SMART ADMIN</h1><p class="muted" id="moduleDescription">Centralized school administration and records.</p></div></div></div>
           <div class="module-summary-grid" id="moduleSummary"></div>
+          <div id="moduleFeatures"></div>
+          <div id="moduleExtra"></div>
           <div class="panel module-workspace">
             <div class="panel-heading"><div><h3 id="workspaceTitle">Module workspace</h3><p class="muted">Manage and review information in this module.</p></div><button class="primary-btn" id="addRecord">＋ Add new record</button></div>
             <div class="toolbar"><div class="search-box"><span>⌕</span><input id="moduleSearch" type="search" placeholder="Search records..." /></div><select id="moduleFilter"><option value="all">All records</option><option value="Active">Active</option><option value="In progress">In progress</option><option value="Completed">Completed</option><option value="For review">For review</option></select></div>
@@ -190,7 +192,7 @@
   </div>
   <div class="assistant-panel" id="assistantPanel">
     <div class="assistant-head"><div class="assistant-avatar">✦</div><div><strong>SMART Assistant</strong><small>Prototype helper · Not connected to AI</small></div><button class="icon-btn" id="closeAssistant">×</button></div>
-    <div class="assistant-body"><div class="assistant-message">Hello! I'm the SMART Assistant interface preview. In the full system, this area can help authorized users summarize validated school data, prepare reports, and explore trends.</div><div class="assistant-note">AI responses are not enabled in this prototype. Connect a secure server-side AI service before deployment.</div></div>
+    <div class="assistant-body"><div class="assistant-message">Hello! I'm the SMART Assistant interface preview. In the full system, this area can help authorized users summarize validated school data, prepare reports, and explore trends.</div><div class="assistant-note">AI responses are not enabled in this prototype. AI output will be advisory only; final decisions remain with authorized school officials. Connect a secure server-side AI service before deployment.</div></div>
     <div class="assistant-input"><input disabled placeholder="AI assistant not connected" /><button disabled>↑</button></div>
   </div>
   <script src="script.js"></script>
