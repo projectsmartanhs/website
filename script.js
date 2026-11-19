@@ -148,3 +148,5 @@ function closeDD(){$$(".nav-item.open").forEach(l=>l.classList.remove("open"))}
   $("#govSearch").addEventListener("click",()=>showToast("Portal search is not connected in this prototype."));
 })();
 goTo("dashboard");
+
+$("#footAssistant").addEventListener("click",()=>$("#assistantPanel").classList.add("show"));

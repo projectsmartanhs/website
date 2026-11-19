@@ -87,3 +87,23 @@
  .dropdown{position:static;box-shadow:none;border-radius:0;min-width:0;background:#f4f7fb}
  .academic-year,.top-user>div:not(.avatar){display:none}}
 @media(max-width:560px){.gov-bar>i,.gov-search{display:none}.login-btn{padding:10px 12px}.site-head>img{width:46px;height:46px}.site-head{gap:10px}}
+
+/* ---- Portal-style footer ---- */
+.site-footer{background:#071f3d;color:#b8c9da;border-top:5px solid #e0a800;margin-top:30px}
+.foot-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1.1fr;gap:42px;padding:44px 38px 36px;max-width:1500px;margin:auto}
+.foot-brand{display:flex;gap:12px;align-items:center}.foot-brand small{display:block;font:800 13px Manrope;color:#f2b705;letter-spacing:.3px}
+.foot-brand strong{display:block;font:800 17px Manrope;color:#fff;margin:2px 0}.foot-brand .mono{font-size:11px;color:#9db6ce}
+.foot-about p{font-size:12px;line-height:1.75;margin:18px 0}
+.foot-contact,.foot-links,.foot-ext{list-style:none;margin:0;padding:0}
+.foot-contact li{display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.5;margin:9px 0}.foot-contact svg{flex:none;margin-top:1px}
+.site-footer h4{font:800 13px Manrope;letter-spacing:.6px;color:#fff;margin:6px 0 16px;padding-bottom:12px;border-bottom:1px solid #ffffff1f}
+.foot-links li{margin:0 0 4px}.foot-links button{background:none;border:0;padding:6px 0;color:#b8c9da;font-size:13px;text-align:left}
+.foot-links button:hover,.foot-ext a:hover{color:#f2b705}
+.foot-card{border:1px solid #ffffff24;background:#ffffff0a;border-radius:11px;padding:14px}
+.foot-card-title{display:flex;gap:9px;align-items:center;color:#f2b705;font:700 14px Manrope;margin-bottom:12px}
+.foot-access{width:100%;background:#14508f;color:#fff;border:0;border-radius:6px;padding:11px;font:700 13px Manrope}.foot-access:hover{background:#1b63ad}
+.foot-ext{margin-top:18px;font-size:12px;color:#7f98b3}.foot-ext li{margin:8px 0}.foot-ext a{color:#7f98b3;text-decoration:none}
+.foot-bar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#04152b;padding:17px 38px;font-size:12px;color:#7f98b3}
+.foot-right{display:flex;gap:14px;align-items:center;color:#b8c9da}.foot-right i{font-style:normal;color:#5c7590}
+@media(max-width:1000px){.foot-grid{grid-template-columns:1fr 1fr;padding:34px 18px;gap:30px}.foot-bar{padding:15px 18px}}
+@media(max-width:560px){.foot-grid{grid-template-columns:1fr}}

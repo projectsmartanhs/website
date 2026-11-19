@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#082a52" />
   <title>PROJECT SMART-ANHS | School Management System</title>
-  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="stylesheet" href="style.css?v=6" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,7 +100,7 @@
             <button class="module-card" data-go="resource"><span class="module-icon m-pink">▣</span><span><strong>SMART RESOURCE</strong><small>Facilities & resources</small></span><b>→</b></button>
             <button class="module-card" data-go="decision"><span class="module-icon m-indigo">✧</span><span><strong>SMART DECISION</strong><small>AI decision support</small></span><b>→</b></button>
           </div>
-          <footer class="footer">PROJECT SMART-ANHS <span>·</span> Smart Management through AI, Research, and Technology <span class="footer-right">Prototype interface · Sample data only</span></footer>
+          
         </section>
 
         <section class="page-section" id="page-module">
@@ -115,7 +115,6 @@
             <div class="table-foot"><span id="recordCount">Showing sample records</span><span>Prototype data · Not connected to a database</span></div>
           </div>
           <div class="panel coming-panel"><div class="coming-icon">✦</div><div><h3>Designed for connected school data</h3><p class="muted">This prototype demonstrates the interface. Connect an authenticated backend and configure permissions before entering actual school records.</p></div></div>
-          <footer class="footer">PROJECT SMART-ANHS <span>·</span> Prototype interface <span class="footer-right">Sample data only</span></footer>
         </section>
 
         <section class="page-section" id="page-reports">
@@ -126,7 +125,6 @@
             <article class="panel report-card"><div class="report-symbol purple">♙</div><h3>Personnel monitoring report</h3><p>Sample personnel and professional development summary.</p><button class="outline-btn report-action">Prepare sample report →</button></article>
             <article class="panel report-card"><div class="report-symbol orange">◈</div><h3>Project accomplishment report</h3><p>Illustrative school programs and project status.</p><button class="outline-btn report-action">Prepare sample report →</button></article>
           </div>
-          <footer class="footer">PROJECT SMART-ANHS <span>·</span> Prototype interface</footer>
         </section>
 
         <section class="page-section" id="page-settings">
@@ -135,10 +133,24 @@
             <article class="panel settings-card"><h3>School information</h3><label>School name<input value="Alcantara National High School" /></label><label>Application name<input value="PROJECT SMART-ANHS" /></label><label>School year<select><option>2026–2027</option><option>2025–2026</option></select></label><button class="primary-btn" id="saveSettings">Save demo settings</button></article>
             <article class="panel settings-card"><h3>System information</h3><div class="setting-row"><span>Application version</span><strong>0.1.0 Prototype</strong></div><div class="setting-row"><span>Frontend</span><strong>HTML · CSS · JavaScript</strong></div><div class="setting-row"><span>Database connection</span><span class="status-chip pending">Not connected</span></div><div class="setting-row"><span>Authentication</span><span class="status-chip pending">Demo only</span></div><div class="notice-box">Do not enter real learner, personnel, financial, or other confidential information into this prototype.</div></article>
           </div>
-          <footer class="footer">PROJECT SMART-ANHS <span>·</span> Prototype interface</footer>
         </section>
       </div>
     </main>
+    <footer class="site-footer">
+      <div class="foot-grid">
+        <div class="foot-about">
+          <div class="foot-brand"><img src="logo.png" width="56" height="56" alt="Alcantara National High School logo" /><div><small>DIVISION OF ROMBLON</small><strong>Alcantara National High School</strong><span class="mono">School ID: 301747</span></div></div>
+          <p>Project SMART-ANHS: Smart Management through Artificial Intelligence, Research, and Technology for an Innovative and Responsive School. AI recommendations are advisory only; final decisions remain with authorized school officials.</p>
+          <ul class="foot-contact"><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f2b705" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>National Highway, Barangay Poblacion, Alcantara, Romblon 5509, Philippines</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f2b705" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>301747@deped.gov.ph</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f2b705" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg><span>+63 917 842 1747</span></li></ul>
+        </div>
+        <div><h4>SMART MODULES</h4><ul class="foot-links"><li><button data-go="admin">Smart Admin</button></li><li><button data-go="learner">Smart Learner</button></li><li><button data-go="teacher">Smart Teacher</button></li><li><button data-go="instruction">Smart Instruction</button></li><li><button data-go="project">Smart Project</button></li><li><button data-go="resource">Smart Resource</button></li><li><button data-go="decision">Smart Decision</button></li></ul></div>
+        <div><h4>SYSTEM &amp; RESOURCES</h4><ul class="foot-links"><li><button data-go="dashboard">Home Dashboard</button></li><li><button data-go="reports">Reports</button></li><li><button data-go="settings">Settings</button></li><li><button id="footAssistant">SMART Assistant</button></li></ul></div>
+        <div><h4>TRANSPARENCY &amp; FACULTY</h4>
+          <ul class="foot-ext"><li>Region IV-B MIMAROPA · SDO Romblon</li><li><a href="https://www.deped.gov.ph" target="_blank" rel="noopener">DepEd Central Office Portal ↗</a></li></ul>
+        </div>
+      </div>
+      <div class="foot-bar"><span>© 2026 Alcantara National High School · School ID 301747 · Prototype with sample data only</span><span class="foot-right"><span>DepEd MATATAG</span><i>·</i><span>Bagong Pilipinas</span></span></div>
+    </footer>
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -153,6 +165,6 @@
     <div class="assistant-body"><div class="assistant-message">Hello! I'm the SMART Assistant interface preview. In the full system, this area can help authorized users summarize validated school data, prepare reports, and explore trends.</div><div class="assistant-note">AI responses are not enabled in this prototype. AI output will be advisory only; final decisions remain with authorized school officials. Connect a secure server-side AI service before deployment.</div></div>
     <div class="assistant-input"><input disabled placeholder="AI assistant not connected" /><button disabled>↑</button></div>
   </div>
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=6"></script>
 </body>
 </html>

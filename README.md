@@ -63,3 +63,6 @@ keys in frontend JavaScript or a public GitHub repository.
 ## Version 0.3.0
 - Portal-style layout: government bar, school header with logo, and a navy top navigation bar. SMART modules sit in the top nav with dropdown menus (Home, seven SMART modules, System). The sidebar was removed.
 - Portal Login and Search Portal are placeholders; no sign-in exists yet.
+
+## Version 0.4.0
+- Added a portal-style footer: school identity and contact details, SMART module links, system links, and a Faculty & Admin Portal card (placeholder).
