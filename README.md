@@ -66,3 +66,9 @@ keys in frontend JavaScript or a public GitHub repository.
 
 ## Version 0.4.0
 - Added a portal-style footer: school identity and contact details, SMART module links, system links, and a Faculty & Admin Portal card (placeholder).
+
+## Version 0.5.0: admin editing
+- Portal Login now opens an admin sign-in. The first time, the admin creates a passcode (stored as a hash in this browser).
+- In admin mode every list is editable: records, module details, summary tiles, module features, at-risk learners, budget lines, canteen tiles, and insights. Any plain text on the dashboard, reports, settings, header, and footer can be edited by clicking it.
+- Edits are saved in this browser only (localStorage). Use Export data / Import data to back up or move them.
+- This is not real security. Anyone with access to the browser could clear the passcode. Multi-user editing and proper access control need the Supabase backend with authentication and row-level security.

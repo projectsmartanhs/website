@@ -50,8 +50,8 @@ $("#modalBackdrop").addEventListener("click",e=>{if(e.target.id==="modalBackdrop
 $("#recordForm").addEventListener("submit",e=>{
   e.preventDefault();
   const now=new Date();const date=now.toLocaleDateString("en-US",{month:"short",day:"2-digit",year:"numeric"});
-  currentRecords.unshift({id:Date.now(),name:$("#recordName").value.trim(),category:$("#recordCategory").value.trim(),date,status:$("#recordStatus").value});
-  renderRows();closeModal();showToast("Sample record added to this session.");
+  modules[currentModule].records.unshift([$("#recordName").value.trim(),$("#recordCategory").value.trim(),date,$("#recordStatus").value]);window.persist&&persist();renderModule(currentModule);
+  closeModal();showToast("Record added.");
 });
 $("#openAssistant").addEventListener("click",()=>$("#assistantPanel").classList.add("show"));
 $("#closeAssistant").addEventListener("click",()=>$("#assistantPanel").classList.remove("show"));
@@ -94,6 +94,7 @@ const insights=[
  {t:"Grade 8 attendance fell 4 points over 3 weeks",k:"Trend analysis",f:"Based on weekly attendance by section",s:"Suggested: adviser follow-up and parent contact",v:null},
  {t:"Repair requests may exceed the MOOE repairs line by Q4",k:"Predictive (illustrative)",f:"Based on open requests and past repair spend",s:"Suggested: review budget realignment",v:null},
  {t:"1 high-risk learner has had no intervention for 7+ days",k:"Operational concern",f:"Based on the at-risk workflow log",s:"Suggested: assign an ARAL slot",v:null}];
+const canteenTiles=[["Feeding beneficiaries","86"],["Meals served this month","1,720"],["Canteen reports filed","3 of 4"]];
 const peso=n=>"₱"+n.toLocaleString("en-US");
 function renderExtras(key){
   $("#moduleFeatures").innerHTML=`<div class="panel feat-panel"><div class="panel-heading"><div><h3>Module scope</h3><p class="muted">Features from the project proposal and their status in this prototype.</p></div></div><ul class="feat-list">${features[key].map(f=>`<li><span>${escapeHTML(f[0])}</span><b class="tag ${f[1]?"on":"off"}">${f[1]?"Preview":"Planned"}</b></li>`).join("")}</ul></div>`;
@@ -109,7 +110,7 @@ function riskPanel(){
   return `<div class="panel extra-panel"><div class="panel-heading"><div><h3>At-risk learners and intervention workflow</h3><p class="muted">Fictional learner codes. Every flag needs human review before action.</p></div></div><div class="table-wrap"><table><thead><tr><th>LEARNER</th><th>RISK</th><th>WHY FLAGGED</th><th>WORKFLOW STAGE</th><th></th></tr></thead><tbody>${atRisk.map((l,i)=>`<tr><td><strong>${l.id}</strong><br><small>${l.gs}</small></td><td><span class="status-chip ${l.risk==="High"?"review":l.risk==="Medium"?"progress":"completed"}">${l.risk}</span></td><td>${l.why.map(escapeHTML).join("<br>")}</td><td>${l.dismissed?"Dismissed by reviewer":`<div class="steps">${stages.map((s,j)=>`<i class="${j<l.stage?"done":j===l.stage?"now":""}"></i>`).join("")}</div><small>${stages[l.stage]}</small>`}</td><td>${l.dismissed||l.stage>=stages.length-1?"":`<button class="outline-btn mini" data-act="adv" data-i="${i}">${l.stage===0?"Confirm review":"Advance"}</button>${l.stage===0?` <button class="outline-btn mini" data-act="dismiss" data-i="${i}">Dismiss</button>`:""}`}</td></tr>`).join("")}</tbody></table></div><div class="table-foot"><span>Flags are drawn from attendance and grade trends. They support, not replace, adviser judgment.</span><span>Session only</span></div></div>`;
 }
 function budgetPanel(canteen){
-  const tiles=canteen?`<div class="module-summary-grid"><div class="summary-tile"><span>Feeding beneficiaries</span><strong>86</strong></div><div class="summary-tile"><span>Meals served this month</span><strong>1,720</strong></div><div class="summary-tile"><span>Canteen reports filed</span><strong>3 of 4</strong></div></div>`:"";
+  const tiles=canteen?`<div class="module-summary-grid">${canteenTiles.map(x=>`<div class="summary-tile"><span>${escapeHTML(x[0])}</span><strong>${escapeHTML(x[1])}</strong></div>`).join("")}</div>`:"";
   return `<div class="panel extra-panel"><div class="panel-heading"><div><h3>Budget utilization${canteen?" and canteen / feeding":""}</h3><p class="muted">Sample figures. View and report only; not a substitute for official accounting records. Follow COA and DepEd financial rules.</p></div></div>${tiles}<div class="table-wrap"><table><thead><tr><th>LINE ITEM</th><th>ALLOCATED</th><th>UTILIZED</th><th>PROGRESS</th></tr></thead><tbody>${budget.map(b=>{const p=Math.round(b[2]/b[1]*100);return `<tr><td>${b[0]}</td><td>${peso(b[1])}</td><td>${peso(b[2])}</td><td><div class="bar"><span style="width:${p}%"></span></div><small>${p}%</small></td></tr>`}).join("")}</tbody></table></div></div>`;
 }
 function insightPanel(){
@@ -124,8 +125,8 @@ $("#moduleExtra").addEventListener("click",e=>{
 
 /* ---- Top navigation with dropdowns ---- */
 function closeDD(){$$(".nav-item.open").forEach(l=>l.classList.remove("open"))}
-(function buildNav(){
-  const nav=$("#topNav"),list=$("#navList");
+function renderNav(){
+  const list=$("#navList");
   let h=`<li class="nav-item" data-pages="dashboard"><button class="nav-top" data-page="dashboard">Home</button></li>`;
   Object.keys(modules).forEach(k=>{
     const name=modules[k].title.split(" ").map(w=>w[0]+w.slice(1).toLowerCase()).join(" ");
@@ -133,6 +134,10 @@ function closeDD(){$$(".nav-item.open").forEach(l=>l.classList.remove("open"))}
   });
   h+=`<li class="nav-item" data-pages="reports settings"><button class="nav-top" aria-haspopup="true">System<i class="caret"></i></button><div class="dropdown"><button class="dd-item" data-page="reports">Reports</button><button class="dd-item" data-page="settings">Settings</button></div></li>`;
   list.innerHTML=h;
+}
+renderNav();
+(function(){
+  const nav=$("#topNav");
   nav.addEventListener("click",e=>{
     const top=e.target.closest(".nav-top");
     if(top){
@@ -144,7 +149,7 @@ function closeDD(){$$(".nav-item.open").forEach(l=>l.classList.remove("open"))}
   nav.addEventListener("mouseleave",()=>nav.classList.remove("lock"));
   document.addEventListener("click",e=>{if(!e.target.closest(".top-nav"))closeDD()});
   $("#navToggle").addEventListener("click",()=>nav.classList.toggle("open"));
-  $("#portalLogin").addEventListener("click",()=>showToast("Login is not enabled in this prototype. Sign-in comes with the secure backend."));
+  $("#portalLogin").addEventListener("click",()=>window.adminLogin?adminLogin():showToast("Admin tools are loading."));
   $("#govSearch").addEventListener("click",()=>showToast("Portal search is not connected in this prototype."));
 })();
 goTo("dashboard");
