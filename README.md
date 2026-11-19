@@ -72,3 +72,6 @@ keys in frontend JavaScript or a public GitHub repository.
 - In admin mode every list is editable: records, module details, summary tiles, module features, at-risk learners, budget lines, canteen tiles, and insights. Any plain text on the dashboard, reports, settings, header, and footer can be edited by clicking it.
 - Edits are saved in this browser only (localStorage). Use Export data / Import data to back up or move them.
 - This is not real security. Anyone with access to the browser could clear the passcode. Multi-user editing and proper access control need the Supabase backend with authentication and row-level security.
+
+## Version 0.5.1
+- Preview works everywhere: clicking a Preview/Planned tag in Module scope explains the feature and can jump to it; the ··· button on a record shows its details; the report cards open a sample report that can be printed or saved as PDF.
