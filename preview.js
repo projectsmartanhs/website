@@ -23,6 +23,7 @@ function featTarget(k,t){
   return[$(".module-workspace"),"The related records in this module's workspace table. You can search and filter them."];
 }
 function featPreview(f){
+  if(currentModule==="admin"&&/calendar/i.test(f[0])&&window.scrollToCal)return scrollToCal();
   const m=modules[currentModule];
   if(!f[1])return openInfo(f[0],`<p><span class="tag off">Planned</span> in ${esc(m.title)}</p><p>This feature is planned for a later phase and is not built in the prototype yet. An admin can change its status to Preview with the ✎ button once it is ready.</p>`);
   const [el,desc]=featTarget(currentModule,f[0]);

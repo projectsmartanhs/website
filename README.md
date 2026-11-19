@@ -75,3 +75,6 @@ keys in frontend JavaScript or a public GitHub repository.
 
 ## Version 0.5.1
 - Preview works everywhere: clicking a Preview/Planned tag in Module scope explains the feature and can jump to it; the ··· button on a record shows its details; the report cards open a sample report that can be printed or saved as PDF.
+
+## Version 0.6.0
+- Smart Admin: school calendar and activity monitoring. Month view with seven activity types (class observation, meeting, seminar / training, holiday, Mass, program / event, other), status tracking, filters, and a monthly list. Admins add, edit, and delete activities; everyone can view them. Saved and exported with the other admin data. Sample holidays should be checked against the official DepEd calendar.
