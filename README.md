@@ -59,3 +59,7 @@ keys in frontend JavaScript or a public GitHub repository.
 
 - Added the Alcantara National High School logo (`logo.png`) to the sidebar and as the browser tab icon (`favicon.png`). Upload both files with the rest when deploying.
 - Retheme to match the school logo (navy, gold, red, laurel green); fixed spacing of the added panels.
+
+## Version 0.3.0
+- Portal-style layout: government bar, school header with logo, and a navy top navigation bar. SMART modules sit in the top nav with dropdown menus (Home, seven SMART modules, System). The sidebar was removed.
+- Portal Login and Search Portal are placeholders; no sign-in exists yet.

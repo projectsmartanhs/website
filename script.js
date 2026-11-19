@@ -14,14 +14,14 @@ const $$ = (s)=>document.querySelectorAll(s);
 function showToast(message){const t=$("#toast");t.textContent=message;t.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>t.classList.remove("show"),2600)}
 function goTo(page){
   $$(".page-section").forEach(s=>s.classList.remove("active"));
-  $$(".nav-link").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
+  $$(".nav-item").forEach(li=>li.classList.toggle("active",li.dataset.pages.split(" ").includes(page)));
   if(page==="dashboard"||page==="reports"||page==="settings"){
     $("#page-"+page).classList.add("active");
     $("#breadcrumbPage").textContent=page.charAt(0).toUpperCase()+page.slice(1);
   }else{
     currentModule=page;renderModule(page);$("#page-module").classList.add("active");$("#breadcrumbPage").textContent=modules[page].title;
   }
-  $("#sidebar").classList.remove("open");
+  closeDD();$("#topNav").classList.remove("open");
   window.scrollTo({top:0,behavior:"smooth"});
 }
 function renderModule(key){
@@ -41,8 +41,8 @@ function renderRows(){
 $$(".nav-link").forEach(btn=>btn.addEventListener("click",()=>goTo(btn.dataset.page)));
 $$("[data-go]").forEach(btn=>btn.addEventListener("click",()=>goTo(btn.dataset.go)));
 $("#moduleSearch").addEventListener("input",renderRows);$("#moduleFilter").addEventListener("change",renderRows);
-$("#menuToggle").addEventListener("click",()=>$("#sidebar").classList.add("open"));
-$("#closeSidebar").addEventListener("click",()=>$("#sidebar").classList.remove("open"));
+
+
 function openModal(){$("#modalBackdrop").classList.add("show");$("#recordName").focus()}
 function closeModal(){$("#modalBackdrop").classList.remove("show");$("#recordForm").reset()}
 $("#addRecord").addEventListener("click",openModal);$("#closeModal").addEventListener("click",closeModal);$("#cancelModal").addEventListener("click",closeModal);
@@ -122,4 +122,29 @@ $("#moduleExtra").addEventListener("click",e=>{
   if(a==="acc"||a==="ret"){insights[i].v=a==="acc"?"Accepted":"Returned for review";showToast("Decision recorded for this session.");$("#moduleExtra").innerHTML=$("#moduleExtra").firstElementChild.outerHTML+insightPanel()}
 });
 
+/* ---- Top navigation with dropdowns ---- */
+function closeDD(){$$(".nav-item.open").forEach(l=>l.classList.remove("open"))}
+(function buildNav(){
+  const nav=$("#topNav"),list=$("#navList");
+  let h=`<li class="nav-item" data-pages="dashboard"><button class="nav-top" data-page="dashboard">Home</button></li>`;
+  Object.keys(modules).forEach(k=>{
+    const name=modules[k].title.split(" ").map(w=>w[0]+w.slice(1).toLowerCase()).join(" ");
+    h+=`<li class="nav-item" data-pages="${k}"><button class="nav-top" aria-haspopup="true">${name}${k==="decision"?'<em class="ai-pill">AI</em>':""}<i class="caret"></i></button><div class="dropdown"><button class="dd-open" data-page="${k}">Open ${name} workspace →</button>${features[k].map(f=>`<button class="dd-item${f[1]?"":" soft"}" data-page="${k}">${escapeHTML(f[0])}${f[1]?"":"<small>Planned</small>"}</button>`).join("")}</div></li>`;
+  });
+  h+=`<li class="nav-item" data-pages="reports settings"><button class="nav-top" aria-haspopup="true">System<i class="caret"></i></button><div class="dropdown"><button class="dd-item" data-page="reports">Reports</button><button class="dd-item" data-page="settings">Settings</button></div></li>`;
+  list.innerHTML=h;
+  nav.addEventListener("click",e=>{
+    const top=e.target.closest(".nav-top");
+    if(top){
+      if(top.dataset.page){nav.classList.add("lock");goTo(top.dataset.page);return}
+      const li=top.parentElement,was=li.classList.contains("open");closeDD();if(!was)li.classList.add("open");nav.classList.remove("lock");return;
+    }
+    const dd=e.target.closest(".dropdown [data-page]");if(dd){nav.classList.add("lock");goTo(dd.dataset.page)}
+  });
+  nav.addEventListener("mouseleave",()=>nav.classList.remove("lock"));
+  document.addEventListener("click",e=>{if(!e.target.closest(".top-nav"))closeDD()});
+  $("#navToggle").addEventListener("click",()=>nav.classList.toggle("open"));
+  $("#portalLogin").addEventListener("click",()=>showToast("Login is not enabled in this prototype. Sign-in comes with the secure backend."));
+  $("#govSearch").addEventListener("click",()=>showToast("Portal search is not connected in this prototype."));
+})();
 goTo("dashboard");

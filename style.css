@@ -50,3 +50,40 @@
 .insight strong{font-size:11px;color:#082a52}.insight p{font-size:10px}
 .mini{font-size:9px;padding:6px 10px}
 .hero-sub{font-size:10px!important}
+
+/* ---- Portal-style header and top navigation ---- */
+.main-area{margin-left:0!important}
+.gov-bar{background:#071f3d;color:#dbe6f3;font-size:12px;display:flex;align-items:center;gap:14px;padding:0 38px;min-height:42px;flex-wrap:wrap}
+.gov-bar i{opacity:.4;font-style:normal}.gov-ph{color:#f2b705;font-weight:600}.mono{font-family:"Courier New",monospace;letter-spacing:.5px}
+.gov-search{margin-left:auto;background:none;border:0;color:#fff;font-size:12px}.gov-dist{color:#9db6ce}
+.site-head{background:#fff;display:flex;align-items:center;gap:18px;padding:12px 38px}
+.site-head>img{flex:none}.site-title small{display:block;font:700 11px Manrope;letter-spacing:.9px;color:#0b3a6e}
+.site-title h1{font:800 26px Manrope;letter-spacing:-.6px;margin:2px 0;color:#111c2b}.site-title em{font-size:11px;color:#6f7e8e}
+.head-actions{margin-left:auto;display:flex;gap:10px;align-items:center}
+.login-btn{display:flex;gap:8px;align-items:center;background:#0b3a6e;color:#fff;border:0;border-radius:9px;padding:12px 20px;font:700 13px Manrope}
+.login-btn:hover{background:#14508f}.head-actions .outline-btn{padding:11px 14px;font-size:11px}
+.nav-toggle{display:none;border:1px solid #dce4ed;background:#fff;border-radius:8px;padding:10px 12px;font-weight:700;color:#0b3a6e}
+.top-nav{background:#0b3a6e;position:sticky;top:0;z-index:30;padding:0 38px;border-bottom:3px solid #f2b705}
+.top-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap}
+.nav-item{position:relative}
+.nav-top{display:flex;align-items:center;gap:7px;background:none;border:0;color:#fff;font:600 13px Manrope;padding:16px 14px;white-space:nowrap}
+.nav-item.active>.nav-top,.nav-top:hover{background:#14508f;color:#f2b705}
+.caret{width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);display:inline-block}
+.nav-top .ai-pill{margin:0;font-style:normal}
+.dropdown{display:none;position:absolute;left:0;top:100%;min-width:340px;background:#fff;border-top:3px solid #f2b705;border-radius:0 0 10px 10px;box-shadow:0 14px 38px #082a5238;padding:6px;z-index:40}
+.nav-item:last-child .dropdown,.nav-item:nth-last-child(2) .dropdown,.nav-item:nth-last-child(3) .dropdown{left:auto;right:0}
+.nav-item.open .dropdown{display:block}
+@media(hover:hover) and (min-width:1001px){.nav-item:hover .dropdown{display:block}.top-nav.lock .nav-item:hover .dropdown{display:none}}
+.dropdown button{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:0;border-radius:6px;padding:10px 12px;font-size:12px;color:#26384c}
+.dropdown button:hover{background:#eef3fa;color:#0b3a6e}.dd-open{font-weight:800;color:#0b3a6e!important;border-bottom:1px solid #e8edf3;border-radius:6px 6px 0 0!important;margin-bottom:4px}
+.dd-item.soft{color:#7b8999}.dd-item small{font-size:9px;background:#eceff3;color:#5b6775;border-radius:9px;padding:2px 7px;font-weight:700}
+.crumb-row{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;border-bottom:1px solid var(--line);padding:9px 38px;flex-wrap:wrap}
+.crumb-right{display:flex;align-items:center;gap:16px}
+@media(max-width:1000px){
+ .site-head,.gov-bar,.crumb-row{padding-left:18px;padding-right:18px}.top-nav{padding:0}
+ .nav-toggle{display:block}.site-title h1{font-size:18px}.site-title em,.gov-dist,.head-actions .outline-btn{display:none}
+ .top-nav ul{display:none;flex-direction:column}.top-nav.open ul{display:flex}
+ .nav-top{width:100%;justify-content:space-between;padding:14px 18px;border-top:1px solid #ffffff1c}
+ .dropdown{position:static;box-shadow:none;border-radius:0;min-width:0;background:#f4f7fb}
+ .academic-year,.top-user>div:not(.avatar){display:none}}
+@media(max-width:560px){.gov-bar>i,.gov-search{display:none}.login-btn{padding:10px 12px}.site-head>img{width:46px;height:46px}.site-head{gap:10px}}

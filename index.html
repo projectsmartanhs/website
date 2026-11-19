@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#082a52" />
   <title>PROJECT SMART-ANHS | School Management System</title>
-  <link rel="stylesheet" href="style.css?v=4" />
+  <link rel="stylesheet" href="style.css?v=5" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,58 +13,15 @@
 </head>
 <body>
   <div class="app-shell">
-    <aside class="sidebar" id="sidebar">
-      <div class="brand">
-        <div class="brand-mark"><img src="logo.png" width="46" height="46" style="width:100%;height:100%;object-fit:contain" alt="Alcantara National High School logo" /></div>
-        <div class="brand-copy">
-          <strong>SMART-ANHS</strong>
-          <small>PROJECT SMART</small>
-        </div>
-        <button class="icon-btn close-sidebar" id="closeSidebar" aria-label="Close menu">×</button>
-      </div>
-      <div class="school-label">ALCANTARA NATIONAL HIGH SCHOOL</div>
-      <nav class="nav-menu" aria-label="Main navigation">
-        <div class="nav-caption">WORKSPACE</div>
-        <button class="nav-link active" data-page="dashboard"><span class="nav-icon">▦</span> Dashboard</button>
-        <div class="nav-caption">SMART MODULES</div>
-        <button class="nav-link" data-page="admin"><span class="nav-icon">⌂</span> Smart Admin <span class="nav-count">01</span></button>
-        <button class="nav-link" data-page="learner"><span class="nav-icon">♧</span> Smart Learner</button>
-        <button class="nav-link" data-page="teacher"><span class="nav-icon">♙</span> Smart Teacher</button>
-        <button class="nav-link" data-page="instruction"><span class="nav-icon">▤</span> Smart Instruction</button>
-        <button class="nav-link" data-page="project"><span class="nav-icon">◈</span> Smart Project</button>
-        <button class="nav-link" data-page="resource"><span class="nav-icon">▣</span> Smart Resource</button>
-        <button class="nav-link" data-page="decision"><span class="nav-icon">✧</span> Smart Decision <span class="ai-pill">AI</span></button>
-        <div class="nav-caption">SYSTEM</div>
-        <button class="nav-link" data-page="reports"><span class="nav-icon">▧</span> Reports</button>
-        <button class="nav-link" data-page="settings"><span class="nav-icon">⚙</span> Settings</button>
-      </nav>
-      <div class="sidebar-bottom">
-        <div class="help-card">
-          <div class="help-icon">✦</div>
-          <strong>SMART Assistant</strong>
-          <p>Explore school insights and organize your work.</p>
-          <button id="openAssistant">Open assistant <span>↗</span></button>
-        </div>
-        <div class="profile-mini">
-          <div class="avatar">AD</div>
-          <div><strong>School Administrator</strong><small>Demo account</small></div>
-          <span class="profile-dots">•••</span>
-        </div>
-      </div>
-    </aside>
-
+    <div class="gov-bar"><span class="gov-ph">Republic of the Philippines</span><i>|</i><span>Department of Education · Region IV-B MIMAROPA</span><i>|</i><span class="mono">School ID: 301747</span><button class="gov-search" id="govSearch">⌕ Search Portal</button><span class="gov-dist">District of Alcantara · Division of Romblon</span></div>
+    <header class="site-head">
+      <img src="logo.png" width="64" height="64" alt="Alcantara National High School logo" />
+      <div class="site-title"><small>DISTRICT OF ALCANTARA · DIVISION OF ROMBLON</small><h1>ALCANTARA NATIONAL HIGH SCHOOL</h1><em>Project SMART-ANHS · Smart Management through Artificial Intelligence, Research, and Technology</em></div>
+      <div class="head-actions"><button class="outline-btn" id="openAssistant">✦ SMART Assistant</button><button class="login-btn" id="portalLogin"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg> Portal Login</button><button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰ Menu</button></div>
+    </header>
+    <nav class="top-nav" id="topNav" aria-label="Main navigation"><ul id="navList"></ul></nav>
+    <div class="crumb-row"><div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumbPage">Dashboard</strong></div><div class="crumb-right"><div class="academic-year"><span class="status-dot"></span> School Year 2026–2027</div><button class="icon-btn notification-btn" id="notificationBtn" aria-label="Notifications">♧<i></i></button><div class="top-user"><div class="avatar">AD</div><div><strong>Administrator</strong><small>School Head</small></div></div></div></div>
     <main class="main-area">
-      <header class="topbar">
-        <div class="topbar-left">
-          <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
-          <div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumbPage">Dashboard</strong></div>
-        </div>
-        <div class="topbar-right">
-          <div class="academic-year"><span class="status-dot"></span> School Year 2026–2027 <span class="chevron">⌄</span></div>
-          <button class="icon-btn notification-btn" id="notificationBtn" aria-label="Notifications">♧<i></i></button>
-          <div class="top-user"><div class="avatar">AD</div><div><strong>Administrator</strong><small>School Head</small></div><span>⌄</span></div>
-        </div>
-      </header>
 
       <div class="page-content">
         <section class="page-section active" id="page-dashboard">
@@ -196,6 +153,6 @@
     <div class="assistant-body"><div class="assistant-message">Hello! I'm the SMART Assistant interface preview. In the full system, this area can help authorized users summarize validated school data, prepare reports, and explore trends.</div><div class="assistant-note">AI responses are not enabled in this prototype. AI output will be advisory only; final decisions remain with authorized school officials. Connect a secure server-side AI service before deployment.</div></div>
     <div class="assistant-input"><input disabled placeholder="AI assistant not connected" /><button disabled>↑</button></div>
   </div>
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>
