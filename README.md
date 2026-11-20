@@ -82,3 +82,7 @@ keys in frontend JavaScript or a public GitHub repository.
 ## Version 0.7.0: Smart Teacher interfaces
 - Each Smart Teacher feature in the top menu opens its own interface: personnel profile and assignment (SF7-based), attendance and participation, instructional supervision, professional development, PPST growth records, and teacher intervention and support. Every one has a records table, a monitoring checklist, and a table of DepEd references (DO 5 s. 2024, DM 89 s. 2025, DO 35 s. 2016, DO 42 s. 2017 and others). All tables are editable by the admin and saved with the other admin data.
 - Citations were checked against public DepEd sources in November 2026, but must be verified against the latest issuances before official use.
+
+## Version 0.8.0: Smart Instruction interfaces
+- Each Smart Instruction feature opens its own interface: instructional supervision reports, curriculum implementation monitoring, assessment and learning outcome analytics, learning resource monitoring, and AI-assisted instructional planning support. Each has records, a monitoring checklist, and an editable table of DepEd references (DO 3, 9, 10, 14, 15, 16, and 17 s. 2026 or 2024 as applicable, DM 89 s. 2025, DM 0522 s. 2026). All tables are editable by the admin.
+- References were checked against public sources in November 2026. Items marked (verify) need confirmation against the official issuance before use.
