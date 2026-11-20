@@ -26,6 +26,7 @@ function featPreview(f){
   if(currentModule==="resource"&&typeof resourceKey==="function"&&resourceKey(f[0]))return goTo("resource:"+resourceKey(f[0]));
   if(currentModule==="project"&&typeof projectKey==="function"&&projectKey(f[0]))return goTo("project:"+projectKey(f[0]));
   if(currentModule==="instruction"&&typeof instructionKey==="function"&&instructionKey(f[0]))return goTo("instruction:"+instructionKey(f[0]));
+  if(currentModule==="decision"&&typeof decisionKey==="function"&&decisionKey(f[0]))return goTo("decision:"+decisionKey(f[0]));
   if(currentModule==="teacher"&&typeof teacherKey==="function"&&teacherKey(f[0]))return goTo("teacher:"+teacherKey(f[0]));
   if(currentModule==="admin"&&/calendar/i.test(f[0])&&window.scrollToCal)return scrollToCal();
   const m=modules[currentModule];

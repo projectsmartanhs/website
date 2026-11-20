@@ -3,7 +3,7 @@ const SKEY="smartanhs.v1",AKEY="smartanhs.admin";
 let isAdmin=sessionStorage.getItem(AKEY)==="1",admSave=null,texts={};
 const today=()=>new Date().toLocaleDateString("en-US",{month:"short",day:"2-digit",year:"numeric"});
 async function hashPass(p){const d=new TextEncoder().encode("smartanhs:"+p);if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest("SHA-256",d);return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}return btoa(p)}
-function snapshot(){const m={};Object.keys(modules).forEach(k=>{const x=modules[k];m[k]={title:x.title,description:x.description,icon:x.icon,summary:x.summary,records:x.records}});return{v:1,modules:m,features,atRisk,budget,insights,canteenTiles,calEvents:window.calEvents||[],tchData:window.tchData,insData:window.insData,prjData:window.prjData,resData:window.resData,texts}}
+function snapshot(){const m={};Object.keys(modules).forEach(k=>{const x=modules[k];m[k]={title:x.title,description:x.description,icon:x.icon,summary:x.summary,records:x.records}});return{v:1,modules:m,features,atRisk,budget,insights,canteenTiles,calEvents:window.calEvents||[],tchData:window.tchData,insData:window.insData,prjData:window.prjData,resData:window.resData,decData:window.decData,texts}}
 function persist(){if(!isAdmin)return;try{localStorage.setItem(SKEY,JSON.stringify(snapshot()))}catch(e){showToast("Could not save in this browser.")}}
 function restore(s){
   Object.keys(s.modules||{}).forEach(k=>modules[k]&&Object.assign(modules[k],s.modules[k]));
@@ -15,7 +15,7 @@ function restore(s){
 document.body.insertAdjacentHTML("beforeend",`<div class="modal-backdrop" id="admModal"><div class="modal"><div class="modal-head"><h2 id="admTitle"></h2><button class="icon-btn" id="admClose" type="button" aria-label="Close">×</button></div><form id="admForm"><div id="admFields"></div><div class="adm-actions"><button type="button" class="outline-btn" id="admCancel">Cancel</button><button class="primary-btn">Save</button></div></form></div></div>`);
 function admForm(title,fields,vals,onSave){
   $("#admTitle").textContent=title;
-  $("#admFields").innerHTML=fields.map((f,i)=>`<label>${f[0]}${f[1]==="select"?`<select data-f="${i}">${f[2].map(o=>`<option${o===vals[i]?" selected":""}>${escapeHTML(o)}</option>`).join("")}</select>`:`<input data-f="${i}" type="${f[1]||"text"}" value="${escapeHTML(vals[i]??"")}" />`}</label>`).join("");
+  $("#admFields").innerHTML=fields.map((f,i)=>`<label>${f[0]}${f[1]==="select"?`<select data-f="${i}">${f[2].map(o=>`<option${o===vals[i]?" selected":""}>${escapeHTML(o)}</option>`).join("")}</select>`:`<input data-f="${i}" type="${f[1]||"text"}"${f[1]==="number"?' step="any"':""} value="${escapeHTML(vals[i]??"")}" />`}</label>`).join("");
   admSave=onSave;$("#admModal").classList.add("show");const f=$("#admFields input,#admFields select");f&&f.focus();
 }
 const admClose=()=>$("#admModal").classList.remove("show");

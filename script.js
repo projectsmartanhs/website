@@ -80,7 +80,7 @@ const features={
  instruction:[["Instructional supervision reports",1],["Curriculum implementation monitoring",1],["Assessment and learning outcome analytics",1],["Learning resource monitoring",1],["AI-assisted instructional planning support",1]],
  project:[["SIP and AIP implementation tracking",1],["Program and project accomplishment monitoring",1],["School-based research monitoring",1],["Monitoring of Access, Quality, and Governance PPAs",1],["Budget utilization and accomplishment tracking",1]],
  resource:[["Inventory monitoring",1],["School facilities and equipment records",1],["Maintenance and repair monitoring",1],["Authorized financial and resource utilization reports",1],["Canteen and feeding program monitoring",1]],
- decision:[["Automated data analysis",0],["Trend and performance analysis",1],["Early identification of operational concerns",1],["Management recommendations",1],["Predictive analytics for planning",0],["Customized executive dashboards",0]]
+ decision:[["Automated data analysis",1],["Trend and performance analysis",1],["Early identification of operational concerns",1],["Management recommendations",1],["Predictive analytics for planning",1],["Customized executive dashboards",1]]
 };
 const ADVISORY="AI-generated recommendations are advisory only. Final decisions remain with authorized school officials.";
 const stages=["AI flag – awaiting human review","Reviewed by adviser","Intervention assigned (ARAL / remediation / home visit)","Monitoring outcome","Resolved"];
