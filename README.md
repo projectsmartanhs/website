@@ -90,3 +90,7 @@ keys in frontend JavaScript or a public GitHub repository.
 ## Version 0.9.0: Smart Project interfaces
 - Each Smart Project feature opens its own interface: SIP and AIP implementation tracking, program and project accomplishment, school-based research, Access / Quality / Governance PPAs (grouped by the BEDP 2030 pillars), and budget utilization and accomplishment (view and report only). Each has records, a monitoring checklist, and an editable table of DepEd references (DO 44 s. 2015, DO 24 s. 2022, DO 16 s. 2017 and DO 26 s. 2021, DO 13 s. 2016, DO 8 s. 2019, and others). All tables are editable by the admin.
 - Correction: DO 9, s. 2026 is the Three-Term School Calendar order. Two Smart Instruction references that mislabeled it were fixed.
+
+## Version 1.0.0: Smart Resource interfaces
+- Each Smart Resource feature opens its own interface: inventory monitoring (COA property rules), school facilities and equipment records (NSBI categories), maintenance and repair monitoring (MOOE, BEFF, QRF), authorized financial and resource utilization reports, and canteen and feeding program monitoring (DO 13 s. 2026 SBFP guidelines, DO 8 s. 2007, DO 13 s. 2017). Each has records, a monitoring checklist, and an editable table of DepEd and COA references. All tables are editable by the admin.
+- These interfaces are for monitoring only. Official property, accounting, and canteen records stay with the authorized officers.
