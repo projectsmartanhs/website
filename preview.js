@@ -23,6 +23,7 @@ function featTarget(k,t){
   return[$(".module-workspace"),"The related records in this module's workspace table. You can search and filter them."];
 }
 function featPreview(f){
+  if(currentModule==="project"&&typeof projectKey==="function"&&projectKey(f[0]))return goTo("project:"+projectKey(f[0]));
   if(currentModule==="instruction"&&typeof instructionKey==="function"&&instructionKey(f[0]))return goTo("instruction:"+instructionKey(f[0]));
   if(currentModule==="teacher"&&typeof teacherKey==="function"&&teacherKey(f[0]))return goTo("teacher:"+teacherKey(f[0]));
   if(currentModule==="admin"&&/calendar/i.test(f[0])&&window.scrollToCal)return scrollToCal();

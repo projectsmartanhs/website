@@ -86,3 +86,7 @@ keys in frontend JavaScript or a public GitHub repository.
 ## Version 0.8.0: Smart Instruction interfaces
 - Each Smart Instruction feature opens its own interface: instructional supervision reports, curriculum implementation monitoring, assessment and learning outcome analytics, learning resource monitoring, and AI-assisted instructional planning support. Each has records, a monitoring checklist, and an editable table of DepEd references (DO 3, 9, 10, 14, 15, 16, and 17 s. 2026 or 2024 as applicable, DM 89 s. 2025, DM 0522 s. 2026). All tables are editable by the admin.
 - References were checked against public sources in November 2026. Items marked (verify) need confirmation against the official issuance before use.
+
+## Version 0.9.0: Smart Project interfaces
+- Each Smart Project feature opens its own interface: SIP and AIP implementation tracking, program and project accomplishment, school-based research, Access / Quality / Governance PPAs (grouped by the BEDP 2030 pillars), and budget utilization and accomplishment (view and report only). Each has records, a monitoring checklist, and an editable table of DepEd references (DO 44 s. 2015, DO 24 s. 2022, DO 16 s. 2017 and DO 26 s. 2021, DO 13 s. 2016, DO 8 s. 2019, and others). All tables are editable by the admin.
+- Correction: DO 9, s. 2026 is the Three-Term School Calendar order. Two Smart Instruction references that mislabeled it were fixed.
