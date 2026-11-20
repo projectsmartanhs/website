@@ -78,3 +78,7 @@ keys in frontend JavaScript or a public GitHub repository.
 
 ## Version 0.6.0
 - Smart Admin: school calendar and activity monitoring. Month view with seven activity types (class observation, meeting, seminar / training, holiday, Mass, program / event, other), status tracking, filters, and a monthly list. Admins add, edit, and delete activities; everyone can view them. Saved and exported with the other admin data. Sample holidays should be checked against the official DepEd calendar.
+
+## Version 0.7.0: Smart Teacher interfaces
+- Each Smart Teacher feature in the top menu opens its own interface: personnel profile and assignment (SF7-based), attendance and participation, instructional supervision, professional development, PPST growth records, and teacher intervention and support. Every one has a records table, a monitoring checklist, and a table of DepEd references (DO 5 s. 2024, DM 89 s. 2025, DO 35 s. 2016, DO 42 s. 2017 and others). All tables are editable by the admin and saved with the other admin data.
+- Citations were checked against public DepEd sources in November 2026, but must be verified against the latest issuances before official use.
