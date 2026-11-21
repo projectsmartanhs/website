@@ -221,7 +221,7 @@ let anchorEl=null;
 function visible(el){return el&&el.offsetParent!==null&&el.getBoundingClientRect().width>0}
 function place(){
   const a=visible(anchorEl)?anchorEl:(visible(q$("#govSearch"))?q$("#govSearch"):visible(q$("#headSearch"))?q$("#headSearch"):null);
-  const vw=document.documentElement.clientWidth,w=Math.min(380,vw-16);
+  const vw=document.documentElement.clientWidth,w=Math.min(260,vw-16);
   overlay.style.width=w+"px";
   if(a){
     const r=a.getBoundingClientRect();
