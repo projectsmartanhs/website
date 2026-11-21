@@ -132,7 +132,7 @@ function renderNav(){
     const name=modules[k].title.split(" ").map(w=>w[0]+w.slice(1).toLowerCase()).join(" ");
     h+=`<li class="nav-item" data-pages="${k}"><button class="nav-top" aria-haspopup="true">${name}${k==="decision"?'<em class="ai-pill">AI</em>':""}<i class="caret"></i></button><div class="dropdown"><button class="dd-open" data-page="${k}">Open ${name} workspace →</button>${features[k].map(f=>`<button class="dd-item${f[1]?"":" soft"}" data-page="${k}">${escapeHTML(f[0])}${f[1]?"":"<small>Planned</small>"}</button>`).join("")}</div></li>`;
   });
-  h+=`<li class="nav-item" data-pages="reports settings"><button class="nav-top" aria-haspopup="true">System<i class="caret"></i></button><div class="dropdown"><button class="dd-item" data-page="reports">Reports</button><button class="dd-item" data-page="settings">Settings</button></div></li>`;
+  h+=`<li class="nav-item" data-pages="reports settings privacy"><button class="nav-top" aria-haspopup="true">System<i class="caret"></i></button><div class="dropdown"><button class="dd-item" data-page="reports">Reports</button><button class="dd-item" data-page="privacy">Data Privacy &amp; AI Safeguards</button><button class="dd-item" data-page="settings">Settings</button></div></li>`;
   list.innerHTML=h;
 }
 renderNav();
