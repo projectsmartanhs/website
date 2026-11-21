@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#082a52" />
   <title>PROJECT SMART-ANHS | School Management System</title>
-  <link rel="stylesheet" href="style.css?v=18" />
+  <link rel="stylesheet" href="style.css?v=19" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
     <header class="site-head">
       <img src="logo.png" width="64" height="64" alt="Alcantara National High School logo" />
       <div class="site-title"><small>DISTRICT OF ALCANTARA · DIVISION OF ROMBLON</small><h1>ALCANTARA NATIONAL HIGH SCHOOL</h1><em>Project SMART-ANHS · Smart Management through Artificial Intelligence, Research, and Technology</em></div>
-      <div class="head-actions"><button class="outline-btn" id="openAssistant">✦ SMART Assistant</button><button class="login-btn" id="portalLogin"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg> Portal Login</button><button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰ Menu</button></div>
+      <div class="head-actions"><button class="outline-btn head-search" id="headSearch" aria-label="Search portal">⌕ Search</button><button class="outline-btn" id="openAssistant">✦ SMART Assistant</button><button class="login-btn" id="portalLogin"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg> Portal Login</button><button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰ Menu</button></div>
     </header>
     <nav class="top-nav" id="topNav" aria-label="Main navigation"><ul id="navList"></ul></nav>
     <div class="crumb-row"><div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumbPage">Dashboard</strong></div><div class="crumb-right"><div class="academic-year"><span class="status-dot"></span> School Year 2026–2027</div><button class="icon-btn notification-btn" id="notificationBtn" aria-label="Notifications">♧<i></i></button><div class="top-user"><div class="avatar">AD</div><div><strong>Administrator</strong><small>School Head</small></div></div></div></div>
@@ -181,7 +181,7 @@
     <div class="assistant-body"><div class="assistant-message">Hello! I'm the SMART Assistant interface preview. In the full system, this area can help authorized users summarize validated school data, prepare reports, and explore trends.</div><div class="assistant-note">AI responses are not enabled in this prototype. AI output will be advisory only; final decisions remain with authorized school officials. Connect a secure server-side AI service before deployment.</div></div>
     <div class="assistant-input"><input disabled placeholder="AI assistant not connected" /><button disabled>↑</button></div>
   </div>
-  <script src="script.js?v=17"></script>
+  <script src="script.js?v=18"></script>
   <script src="admin.js?v=17"></script>
   <script src="preview.js?v=17"></script>
   <script src="calendar.js?v=17"></script>
@@ -193,5 +193,6 @@
   <script src="adminmod.js?v=2"></script>
   <script src="learnermod.js?v=2"></script>
   <script src="privacy.js?v=1"></script>
+  <script src="search.js?v=1"></script>
 </body>
 </html>

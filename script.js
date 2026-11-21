@@ -150,7 +150,7 @@ renderNav();
   document.addEventListener("click",e=>{if(!e.target.closest(".top-nav"))closeDD()});
   $("#navToggle").addEventListener("click",()=>nav.classList.toggle("open"));
   $("#portalLogin").addEventListener("click",()=>window.adminLogin?adminLogin():showToast("Admin tools are loading."));
-  $("#govSearch").addEventListener("click",()=>showToast("Portal search is not connected in this prototype."));
+  /* Search Portal buttons are wired in search.js */
 })();
 goTo("dashboard");
 

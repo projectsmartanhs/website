@@ -94,3 +94,10 @@ keys in frontend JavaScript or a public GitHub repository.
 ## Version 1.0.0: Smart Resource interfaces
 - Each Smart Resource feature opens its own interface: inventory monitoring (COA property rules), school facilities and equipment records (NSBI categories), maintenance and repair monitoring (MOOE, BEFF, QRF), authorized financial and resource utilization reports, and canteen and feeding program monitoring (DO 13 s. 2026 SBFP guidelines, DO 8 s. 2007, DO 13 s. 2017). Each has records, a monitoring checklist, and an editable table of DepEd and COA references. All tables are editable by the admin.
 - These interfaces are for monitoring only. Official property, accounting, and canteen records stay with the authorized officers.
+
+## Version 0.7.0: Search Portal
+- The Search Portal button (top bar, plus a "Search" button in the header on small screens) now opens a working search. It was a placeholder that only showed a toast.
+- Searches module pages, sample records, every interface table (Teacher, Instruction, Project, Resource, Decision, Admin, Learner), school calendar activities, reports, and the privacy page. Edits made in admin mode are included.
+- Results are grouped by module and ranked by title match. Opening a table result jumps to that page and filters the table to the record.
+- Shortcuts: `/` or Ctrl/Cmd+K to open, arrow keys to move, Enter to open, Esc to close.
+- New file: `search.js`. Upload it with the other files.
