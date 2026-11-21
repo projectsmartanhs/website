@@ -28,6 +28,7 @@ function featPreview(f){
   if(currentModule==="instruction"&&typeof instructionKey==="function"&&instructionKey(f[0]))return goTo("instruction:"+instructionKey(f[0]));
   if(currentModule==="decision"&&typeof decisionKey==="function"&&decisionKey(f[0]))return goTo("decision:"+decisionKey(f[0]));
   if(currentModule==="teacher"&&typeof teacherKey==="function"&&teacherKey(f[0]))return goTo("teacher:"+teacherKey(f[0]));
+  if(currentModule==="admin"&&typeof adminKey==="function"&&adminKey(f[0]))return goTo("adm:"+adminKey(f[0]));
   if(currentModule==="admin"&&/calendar/i.test(f[0])&&window.scrollToCal)return scrollToCal();
   const m=modules[currentModule];
   if(!f[1])return openInfo(f[0],`<p><span class="tag off">Planned</span> in ${esc(m.title)}</p><p>This feature is planned for a later phase and is not built in the prototype yet. An admin can change its status to Preview with the ✎ button once it is ready.</p>`);

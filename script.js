@@ -74,7 +74,7 @@ const extraRecords={
 Object.keys(extraRecords).forEach(k=>modules[k].records.push(...extraRecords[k]));
 
 const features={
- admin:[["Centralized school information dashboard",1],["Automated report generation",0],["Digital document and records management",1],["School calendar and activity monitoring",1],["Management performance indicators (SBM-aligned)",1],["AI-assisted administrative summaries",0]],
+ admin:[["Centralized school information dashboard",1],["Automated report generation",1],["Digital document and records management",1],["School calendar and activity monitoring",1],["Management performance indicators (SBM-aligned)",1],["AI-assisted administrative summaries",1]],
  learner:[["Learner attendance monitoring",1],["Academic performance tracking",1],["Identification of learners at risk of failing or dropping out",1],["Intervention and remediation monitoring",1],["ARAL Program monitoring",1],["Learner progress reports",1]],
  teacher:[["Personnel profile and assignment records",1],["Attendance and participation monitoring",1],["Instructional supervision tracking",1],["Professional development monitoring",1],["PPST-related professional growth records",1],["Teacher intervention and support monitoring",1]],
  instruction:[["Instructional supervision reports",1],["Curriculum implementation monitoring",1],["Assessment and learning outcome analytics",1],["Learning resource monitoring",1],["AI-assisted instructional planning support",1]],
