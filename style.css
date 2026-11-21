@@ -219,32 +219,25 @@ body:not(.is-admin) .adm,body:not(.is-admin) .adm-tilebar,body:not(.is-admin) .a
 .pv-closing{border-left:4px solid #f2b705;background:#fffaf0}.pv-closing strong{font-size:12px;color:#082a52}.pv-closing p{margin:4px 0 0;font-size:13px;color:#26384c}
 @media(max-width:900px){#page-prv .module-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#page-prv .table-wrap{overflow-x:auto}#page-prv table{min-width:760px!important}}
 
-/* ---- Search Portal ---- */
+/* ---- Search Portal (dropdown under the button) ---- */
 .head-actions .head-search{display:none}
-.srch-lock{overflow:hidden}
-.srch-backdrop{position:fixed;inset:0;z-index:400;background:rgba(8,42,82,.55);display:none;align-items:flex-start;justify-content:center;padding:8vh 16px 16px}
-.srch-backdrop.show{display:flex}
-.srch-box{width:100%;max-width:680px;max-height:78vh;display:flex;flex-direction:column;background:#fff;border-radius:14px;box-shadow:0 24px 70px rgba(8,42,82,.35);overflow:hidden;border-top:4px solid var(--teal)}
-.srch-top{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
-.srch-ico{font-size:20px;color:var(--navy2)}
-.srch-top input{flex:1;min-width:0;border:0;outline:0;font-size:16px;color:var(--ink);background:transparent;padding:6px 0}
-.srch-close{border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:6px;font-size:11px;padding:4px 8px}
-.srch-count{padding:7px 16px;font-size:11px;color:var(--muted);letter-spacing:.3px;min-height:28px;background:var(--bg);border-bottom:1px solid var(--line)}
-.srch-list{overflow-y:auto;padding:6px 8px 10px;flex:1}
-.srch-gh{display:flex;justify-content:space-between;font:700 10px Manrope,sans-serif;letter-spacing:1.3px;text-transform:uppercase;color:var(--navy2);padding:12px 8px 5px}
+.srch-pop{position:fixed;z-index:400;display:none;background:#fff;border:1px solid #9aa5b1;box-shadow:0 6px 20px rgba(8,42,82,.18)}
+.srch-pop.show{display:block}
+.srch-pop input{display:block;width:100%;border:0;outline:0;background:#fff;color:var(--ink);font-size:18px;padding:15px 14px;border-radius:0;-webkit-appearance:none;appearance:none}
+.srch-pop input::placeholder{color:#c3c8ce;opacity:1}
+.srch-pop input::-webkit-search-cancel-button{cursor:pointer}
+.srch-count{padding:6px 14px;font-size:11px;color:var(--muted);background:var(--bg);border-top:1px solid var(--line)}
+.srch-count:empty{display:none}
+.srch-list{max-height:min(58vh,440px);overflow-y:auto;padding:4px 6px 8px;border-top:1px solid var(--line)}
+.srch-list:empty{display:none}
+.srch-gh{display:flex;justify-content:space-between;font:700 10px Manrope,sans-serif;letter-spacing:1.3px;text-transform:uppercase;color:var(--navy2);padding:10px 8px 4px}
 .srch-gh span{color:var(--muted);font-weight:600}
-.srch-row{padding:8px 10px;border-radius:8px;cursor:pointer}
+.srch-row{padding:7px 10px;border-radius:6px;cursor:pointer}
 .srch-row.on{background:#eaf1f9;box-shadow:inset 3px 0 0 var(--teal)}
-.srch-t{font-weight:600;color:var(--ink);font-size:14px;overflow-wrap:anywhere}
-.srch-m{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.45;overflow-wrap:anywhere}
+.srch-t{font-weight:600;color:var(--ink);font-size:13.5px;overflow-wrap:anywhere}
+.srch-m{font-size:11.5px;color:var(--muted);margin-top:2px;line-height:1.45;overflow-wrap:anywhere}
 .srch-m b{color:var(--navy2);font-weight:600}
 .srch-list mark{background:#fff0b8;color:inherit;border-radius:2px;padding:0 1px}
 .srch-more{border:0;background:none;color:var(--navy2);font-size:12px;font-weight:600;padding:6px 10px;text-decoration:underline}
-.srch-empty{padding:26px 18px;color:var(--muted);font-size:13px}
-.srch-empty strong{display:block;color:var(--ink);font-size:14px;margin-bottom:6px}
-.srch-empty ul{margin:6px 0 0;padding-left:18px;line-height:1.8}
-.srch-empty p{margin:4px 0 0}
-.srch-foot{display:flex;gap:16px;padding:8px 16px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);background:var(--bg)}
-.srch-foot kbd{font:600 10px monospace;background:#fff;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:1px 5px;margin-right:3px}
+.srch-empty{padding:14px 12px;color:var(--muted);font-size:13px}
 @media(max-width:900px){.head-actions .head-search{display:inline-flex}}
-@media(max-width:560px){.srch-backdrop{padding:10px}.srch-box{max-height:92vh}.srch-foot{display:none}}

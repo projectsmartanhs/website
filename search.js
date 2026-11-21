@@ -130,20 +130,19 @@ const PER_GROUP=5;let expanded={};
 function ensureUI(){
   if(overlay)return;
   overlay=document.createElement("div");
-  overlay.id="searchOverlay";overlay.className="srch-backdrop";overlay.setAttribute("role","dialog");overlay.setAttribute("aria-modal","true");overlay.setAttribute("aria-label","Search portal");
-  overlay.innerHTML=`<div class="srch-box">
-    <div class="srch-top"><span class="srch-ico" aria-hidden="true">⌕</span>
-      <input id="srchInput" type="search" autocomplete="off" spellcheck="false" placeholder="Search modules, records, reports, activities…" aria-label="Search the portal" />
-      <button class="srch-close" id="srchClose" aria-label="Close search">Esc</button></div>
+  overlay.id="searchOverlay";overlay.className="srch-pop";overlay.setAttribute("role","dialog");overlay.setAttribute("aria-label","Search portal");
+  overlay.innerHTML=`<input id="srchInput" type="search" autocomplete="off" spellcheck="false" placeholder="Search …" aria-label="Search the portal" />
     <div class="srch-count" id="srchCount" aria-live="polite"></div>
-    <div class="srch-list" id="srchList" role="listbox"></div>
-    <div class="srch-foot"><span><kbd>↑</kbd><kbd>↓</kbd> to move</span><span><kbd>Enter</kbd> to open</span><span><kbd>Esc</kbd> to close</span></div>
-  </div>`;
+    <div class="srch-list" id="srchList" role="listbox"></div>`;
   document.body.appendChild(overlay);
   input=q$("#srchInput");list=q$("#srchList");count=q$("#srchCount");
   input.addEventListener("input",()=>{expanded={};render()});
-  q$("#srchClose").addEventListener("click",close);
-  overlay.addEventListener("mousedown",e=>{if(e.target===overlay)close()});
+  document.addEventListener("mousedown",e=>{
+    if(!overlay.classList.contains("show"))return;
+    if(overlay.contains(e.target)||e.target.closest("#govSearch,#headSearch"))return;
+    close(true);
+  });
+  window.addEventListener("resize",()=>{if(overlay.classList.contains("show"))place()});
   list.addEventListener("click",e=>{
     const more=e.target.closest("[data-more]");
     if(more){expanded[more.dataset.more]=1;render();return}
@@ -166,16 +165,11 @@ function ensureUI(){
 function render(){
   const raw=input.value.trim(),toks=raw.toLowerCase().split(/\s+/).filter(Boolean);
   flat=[];active=-1;
-  if(!toks.length){
-    count.textContent="";
-    const tips=["Try a teacher code such as T-001","Try “attendance”, “budget”, or “inventory”","Try a DepEd order, for example “DO 9”","Try “Mass” or “holiday” to find calendar activities"];
-    list.innerHTML=`<div class="srch-empty"><strong>Search the whole portal</strong><ul>${tips.map(t=>`<li>${E(t)}</li>`).join("")}</ul></div>`;
-    return;
-  }
+  if(!toks.length){count.textContent="";list.innerHTML="";return}
   const res=run(raw,items);
   if(!res.length){
-    count.textContent="No results";
-    list.innerHTML=`<div class="srch-empty"><strong>No results for “${E(raw)}”</strong><p>Check the spelling or try fewer or different words.</p></div>`;
+    count.textContent="";
+    list.innerHTML=`<div class="srch-empty">No results for “${E(raw)}”. Try fewer or different words.</div>`;
     return;
   }
   const groups=[],byMod={};
@@ -223,18 +217,31 @@ function open(i){
   }catch(e){if(typeof showToast==="function")showToast("Could not open that result.")}
 }
 
-function openSearch(prefill){
+let anchorEl=null;
+function visible(el){return el&&el.offsetParent!==null&&el.getBoundingClientRect().width>0}
+function place(){
+  const a=visible(anchorEl)?anchorEl:(visible(q$("#govSearch"))?q$("#govSearch"):visible(q$("#headSearch"))?q$("#headSearch"):null);
+  const vw=document.documentElement.clientWidth,w=Math.min(380,vw-16);
+  overlay.style.width=w+"px";
+  if(a){
+    const r=a.getBoundingClientRect();
+    overlay.style.top=Math.round(r.bottom+6)+"px";
+    overlay.style.left=Math.round(Math.max(8,Math.min(r.right-w,vw-w-8)))+"px";
+  }else{overlay.style.top="60px";overlay.style.left=Math.max(8,vw-w-8)+"px"}
+}
+function openSearch(prefill,anchor){
   ensureUI();
   try{items=buildIndex()}catch(e){items=[]}
   lastFocus=document.activeElement;
-  overlay.classList.add("show");document.body.classList.add("srch-lock");
+  anchorEl=anchor&&anchor.nodeType===1?anchor:null;
+  overlay.classList.add("show");place();
   input.value=typeof prefill==="string"?prefill:"";
   expanded={};render();
   setTimeout(()=>{input.focus();input.select()},0);
 }
 function close(keepFocus){
   if(!overlay)return;
-  overlay.classList.remove("show");document.body.classList.remove("srch-lock");
+  overlay.classList.remove("show");
   if(keepFocus!==true&&lastFocus&&lastFocus.focus)try{lastFocus.focus()}catch(e){}
 }
 
@@ -242,7 +249,7 @@ window.openSearch=openSearch;
 window.closeSearch=close;
 
 /* Wire up the buttons and keyboard shortcuts */
-["govSearch","headSearch"].forEach(id=>{const b=document.getElementById(id);if(b)b.addEventListener("click",()=>openSearch())});
+["govSearch","headSearch"].forEach(id=>{const b=document.getElementById(id);if(b)b.addEventListener("click",()=>{overlay&&overlay.classList.contains("show")?close():openSearch("",b)})});
 document.addEventListener("keydown",e=>{
   const t=e.target,typing=t&&(t.tagName==="INPUT"||t.tagName==="TEXTAREA"||t.tagName==="SELECT"||t.isContentEditable);
   if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();overlay&&overlay.classList.contains("show")?close():openSearch();return}
