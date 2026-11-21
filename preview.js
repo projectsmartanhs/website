@@ -26,6 +26,7 @@ function featPreview(f){
   if(currentModule==="resource"&&typeof resourceKey==="function"&&resourceKey(f[0]))return goTo("resource:"+resourceKey(f[0]));
   if(currentModule==="project"&&typeof projectKey==="function"&&projectKey(f[0]))return goTo("project:"+projectKey(f[0]));
   if(currentModule==="instruction"&&typeof instructionKey==="function"&&instructionKey(f[0]))return goTo("instruction:"+instructionKey(f[0]));
+  if(currentModule==="learner"&&typeof learnerKey==="function"&&learnerKey(f[0]))return goTo("lrn:"+learnerKey(f[0]));
   if(currentModule==="decision"&&typeof decisionKey==="function"&&decisionKey(f[0]))return goTo("decision:"+decisionKey(f[0]));
   if(currentModule==="teacher"&&typeof teacherKey==="function"&&teacherKey(f[0]))return goTo("teacher:"+teacherKey(f[0]));
   if(currentModule==="admin"&&typeof adminKey==="function"&&adminKey(f[0]))return goTo("adm:"+adminKey(f[0]));
