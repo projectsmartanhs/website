@@ -122,6 +122,18 @@ drop policy if exists "audit read admin" on public.audit_log;
 create policy "audit read admin" on public.audit_log
   for select to authenticated using (public.my_role() = 'admin');
 
+-- 6. Table permissions for the Data API -----------------------------------------
+-- Needed when the project was created with "Grant API access to new tables automatically" OFF.
+-- Harmless if it was ON. Row Level Security above still decides which rows each person can touch.
+grant usage on schema public to anon, authenticated, service_role;
+grant select, update on public.profiles  to authenticated;
+grant select, update on public.app_state to authenticated;
+grant select         on public.files     to authenticated;
+grant select         on public.audit_log to authenticated;
+grant all on public.profiles, public.app_state, public.files, public.audit_log to service_role;
+grant usage, select on all sequences in schema public to service_role;
+grant execute on function public.my_role() to authenticated, service_role;
+
 -- To promote someone later (run in the SQL Editor), for example:
 --   update public.profiles set role = 'school_head' where email = 'principal@school.edu.ph';
 -- Roles: admin (everything), school_head (edit data, upload, delete files),
