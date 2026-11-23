@@ -1,4 +1,6 @@
 /* SMART-ANHS admin editing (prototype: data is saved in this browser only) */
+/* Cloud mode is on whenever config.js has both Supabase values (works even if config.js lost its last line). */
+window.SMART_BACKEND_ON=!!(window.SMART_CONFIG&&window.SMART_CONFIG.SUPABASE_URL&&window.SMART_CONFIG.SUPABASE_ANON_KEY);
 const SKEY="smartanhs.v1",AKEY="smartanhs.admin";
 let isAdmin=!window.SMART_BACKEND_ON&&sessionStorage.getItem(AKEY)==="1",admSave=null,texts={};
 const today=()=>new Date().toLocaleDateString("en-US",{month:"short",day:"2-digit",year:"numeric"});
