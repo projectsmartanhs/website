@@ -241,3 +241,20 @@ body:not(.is-admin) .adm,body:not(.is-admin) .adm-tilebar,body:not(.is-admin) .a
 .srch-more{border:0;background:none;color:var(--navy2);font-size:12px;font-weight:600;padding:6px 10px;text-decoration:underline}
 .srch-empty{padding:10px 11px;color:var(--muted);font-size:12px}
 @media(max-width:900px){.head-actions .head-search{display:inline-flex}}
+
+/* ---- Cloud sync + school files ---- */
+.sync-chip{font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;background:#eef2f7;color:#53657a;margin-right:10px;white-space:nowrap}
+.sync-chip.ok{background:#e3f4ea;color:#1c7a45}.sync-chip.busy{background:#fff4d6;color:#8a6200}.sync-chip.bad{background:#fde8e8;color:#b23a3a}
+.files-panel{margin-top:18px;padding:18px 20px}.files-panel h3{margin:0 0 4px;font-size:17px}.files-panel .panel-heading{margin-bottom:6px}
+.files-note{color:var(--muted);font-size:13px;margin:6px 0}.files-note.bad{color:#b23a3a}.files-note code{background:#eef2f7;padding:1px 5px;border-radius:4px}
+.files-up{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 14px}
+.files-up input[type=file]{flex:1 1 220px;min-width:0;font-size:12px}
+.files-up input[type=text],.files-up select,.files-bar input{border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-size:12.5px;background:#fff;color:var(--ink)}
+.files-up input[type=text]{flex:1 1 150px;min-width:0}
+.files-bar{display:flex;gap:12px;align-items:center;margin:4px 0 8px}.files-bar input{flex:0 1 260px}
+.files-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.files-table th{text-align:left;font-size:10px;color:#6f7e8e;padding:7px 8px;border-bottom:1px solid #dde3ea}
+.files-table td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
+.files-table .muted{font-size:11px}.files-act{white-space:nowrap;text-align:right}.files-act .mini{margin-left:6px}
+.files-act .danger{color:#b23a3a;border-color:#efc9c9}
+@media(max-width:700px){.files-panel .table-wrap{overflow-x:auto}.files-table{min-width:620px}}

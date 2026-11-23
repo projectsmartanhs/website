@@ -101,3 +101,10 @@ keys in frontend JavaScript or a public GitHub repository.
 - Results are grouped by module and ranked by title match. Opening a table result jumps to that page and filters the table to the record.
 - Shortcuts: `/` or Ctrl/Cmd+K to open, arrow keys to move, Enter to open, Esc to close.
 - New file: `search.js`. Upload it with the other files.
+
+## Version 0.8.0: Supabase backend and Google Drive storage
+- Sign in with Supabase accounts and roles instead of the browser passcode (when `config.js` is filled in).
+- School data saves to the Supabase database, with conflict detection and an audit log.
+- New Reports & documents panel: upload, download, delete, and search files stored in Google Drive through a Supabase Edge Function.
+- New files: `config.js`, `backend.js`, `files.js`, `supabase/schema.sql`, `supabase/functions/drive/index.ts`, `SETUP.md`.
+- Leave `config.js` blank to keep the local prototype mode.

@@ -85,6 +85,9 @@ function buildIndex(){
   /* 6. School calendar activities */
   try{calEvents.forEach(ev=>add("Smart Admin","Calendar",ev.title,[ev.date+(ev.end?" to "+ev.end:""),ev.type,ev.status,ev.notes].filter(Boolean).join(" · "),"cal"))}catch(e){}
 
+  /* 7. Google Drive files (listed once the Reports page or sign-in has loaded them) */
+  try{((window.Backend&&Backend.files)||[]).forEach(f=>add("Files","Drive file",f.name,[f.module,f.category,f.note,f.uploader].filter(Boolean).join(" · "),"reports"))}catch(e){}
+
   return items;
 }
 

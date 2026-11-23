@@ -1,10 +1,10 @@
 /* SMART-ANHS admin editing (prototype: data is saved in this browser only) */
 const SKEY="smartanhs.v1",AKEY="smartanhs.admin";
-let isAdmin=sessionStorage.getItem(AKEY)==="1",admSave=null,texts={};
+let isAdmin=!window.SMART_BACKEND_ON&&sessionStorage.getItem(AKEY)==="1",admSave=null,texts={};
 const today=()=>new Date().toLocaleDateString("en-US",{month:"short",day:"2-digit",year:"numeric"});
 async function hashPass(p){const d=new TextEncoder().encode("smartanhs:"+p);if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest("SHA-256",d);return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}return btoa(p)}
 function snapshot(){const m={};Object.keys(modules).forEach(k=>{const x=modules[k];m[k]={title:x.title,description:x.description,icon:x.icon,summary:x.summary,records:x.records}});return{v:1,modules:m,features,atRisk,budget,insights,canteenTiles,calEvents:window.calEvents||[],tchData:window.tchData,insData:window.insData,prjData:window.prjData,resData:window.resData,decData:window.decData,amData:window.amData,lmData:window.lmData,prvData:window.prvData,texts}}
-function persist(){if(!isAdmin)return;try{localStorage.setItem(SKEY,JSON.stringify(snapshot()))}catch(e){showToast("Could not save in this browser.")}}
+function persist(){if(!isAdmin)return;try{localStorage.setItem(SKEY,JSON.stringify(snapshot()))}catch(e){showToast("Could not save in this browser.")}if(window.Backend&&Backend.enabled)Backend.queue()}
 function restore(s){
   Object.keys(s.modules||{}).forEach(k=>modules[k]&&Object.assign(modules[k],s.modules[k]));
   if(s.features)Object.assign(features,s.features);
@@ -23,6 +23,7 @@ $("#admClose").onclick=$("#admCancel").onclick=admClose;
 $("#admForm").addEventListener("submit",async e=>{e.preventDefault();const v=[...$$("#admFields [data-f]")].map(x=>x.value);if(await admSave(v)!==false)admClose()});
 /* login */
 function adminLogin(){
+  if(window.SMART_BACKEND_ON){if(window.Backend&&Backend.enabled)Backend.openLogin();else showToast((window.Backend&&Backend.error)||"Cloud sign-in is still loading. Try again in a moment.");return}
   if(isAdmin){if(confirm("Log out of admin mode?"))setAdmin(false);return}
   const saved=localStorage.getItem(AKEY);
   if(!saved)admForm("Create admin passcode",[["New passcode (6+ characters)","password"],["Repeat passcode","password"]],["",""],async v=>{if(v[0].length<6||v[0]!==v[1]){showToast("Passcodes must match and have 6+ characters.");return false}localStorage.setItem(AKEY,await hashPass(v[0]));setAdmin(true)});
@@ -92,11 +93,11 @@ function decorate(){
 let raf=0;const obs=new MutationObserver(()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(decorate)});
 ["#moduleSummary","#moduleFeatures","#moduleExtra","#recordsBody","#moduleTitle"].forEach(s=>obs.observe($(s),{childList:true,subtree:true,characterData:true}));
 /* admin bar: export / import / reset */
-$(".crumb-row").insertAdjacentHTML("afterend",`<div class="adm-bar" id="admBar" hidden><strong>Admin mode</strong><span>Click any text to edit it. Use ✎ ＋ ✕ on records, features, learners, budget, and insights. Saved in this browser only, so export a backup regularly.</span><span class="adm-tools"><button class="outline-btn mini" id="admExport">Export data</button><button class="outline-btn mini" id="admImport">Import data</button><button class="outline-btn mini" id="admReset">Reset edits</button><input type="file" id="admFile" accept="application/json" hidden></span></div>`);
+$(".crumb-row").insertAdjacentHTML("afterend",`<div class="adm-bar" id="admBar" hidden><strong>Admin mode</strong><span>Click any text to edit it. Use ✎ ＋ ✕ on records, features, learners, budget, and insights. Saved to the school database when signed in (and kept in this browser). Export a backup regularly.</span><span class="adm-tools"><button class="outline-btn mini" id="admExport">Export data</button><button class="outline-btn mini" id="admImport">Import data</button><button class="outline-btn mini" id="admReset">Reset edits</button><input type="file" id="admFile" accept="application/json" hidden></span></div>`);
 $("#admExport").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(snapshot(),null,2)],{type:"application/json"}));a.download="smart-anhs-data.json";a.click()};
 $("#admImport").onclick=()=>$("#admFile").click();
-$("#admFile").onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{const s=JSON.parse(t);if(!s.modules)throw 0;localStorage.setItem(SKEY,t);location.reload()}catch(x){showToast("That file is not a valid SMART-ANHS export.")}})};
-$("#admReset").onclick=()=>{if(confirm("Remove all saved edits in this browser? The admin passcode is kept.")){localStorage.removeItem(SKEY);location.reload()}};
+$("#admFile").onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{const s=JSON.parse(t);if(!s.modules)throw 0;localStorage.setItem(SKEY,t);if(window.Backend&&Backend.enabled){Backend.pushNow().then(()=>location.reload())}else location.reload()}catch(x){showToast("That file is not a valid SMART-ANHS export.")}})};
+$("#admReset").onclick=()=>{if(confirm("Remove all saved edits in this browser? The admin passcode is kept.")){localStorage.removeItem(SKEY);localStorage.removeItem("smartanhs.rv");location.reload()}};
 /* start */
 try{const s=JSON.parse(localStorage.getItem(SKEY)||"null");if(s){restore(s);TE.forEach(o=>{if(texts[o.key]!==undefined)o.el.textContent=texts[o.key]});renderNav()}}catch(e){}
 if(isAdmin)setAdmin(true);
