@@ -5,9 +5,10 @@ const SKEY="smartanhs.v1",AKEY="smartanhs.admin";
 let isAdmin=!window.SMART_BACKEND_ON&&sessionStorage.getItem(AKEY)==="1",admSave=null,texts={};
 const today=()=>new Date().toLocaleDateString("en-US",{month:"short",day:"2-digit",year:"numeric"});
 async function hashPass(p){const d=new TextEncoder().encode("smartanhs:"+p);if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest("SHA-256",d);return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}return btoa(p)}
-function snapshot(){const m={};Object.keys(modules).forEach(k=>{const x=modules[k];m[k]={title:x.title,description:x.description,icon:x.icon,summary:x.summary,records:x.records}});return{v:1,modules:m,features,atRisk,budget,insights,canteenTiles,calEvents:window.calEvents||[],tchData:window.tchData,insData:window.insData,prjData:window.prjData,resData:window.resData,decData:window.decData,amData:window.amData,lmData:window.lmData,prvData:window.prvData,texts}}
+function snapshot(){const m={};Object.keys(modules).forEach(k=>{const x=modules[k];m[k]={title:x.title,description:x.description,icon:x.icon,summary:x.summary,records:x.records}});return{v:1,modules:m,features,atRisk,budget,insights,canteenTiles,calEvents:window.calEvents||[],tchData:window.tchData,insData:window.insData,prjData:window.prjData,resData:window.resData,decData:window.decData,amData:window.amData,lmData:window.lmData,prvData:window.prvData,heroImage:window.heroImage||"",texts}}
 function persist(){if(!isAdmin)return;try{localStorage.setItem(SKEY,JSON.stringify(snapshot()))}catch(e){showToast("Could not save in this browser.")}if(window.Backend&&Backend.enabled)Backend.queue()}
 function restore(s){
+  window.heroImage=s.heroImage||"";if(window.applyHero)applyHero();
   Object.keys(s.modules||{}).forEach(k=>modules[k]&&Object.assign(modules[k],s.modules[k]));
   if(s.features)Object.assign(features,s.features);
   [["atRisk",atRisk],["budget",budget],["insights",insights],["canteenTiles",canteenTiles]].forEach(([n,a])=>{if(Array.isArray(s[n]))a.splice(0,a.length,...s[n])});

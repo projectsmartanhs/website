@@ -278,3 +278,14 @@ body:not(.is-admin) .adm,body:not(.is-admin) .adm-tilebar,body:not(.is-admin) .a
 .modal textarea{display:block;width:100%;margin-top:6px;padding:10px;border:1px solid var(--line);border-radius:6px;outline:none;font:inherit;font-size:10px;line-height:1.5;color:#35495e;background:#fff;resize:none;overflow-y:auto;max-height:40vh}
 .modal textarea:focus,.modal input:focus,.modal select:focus{border-color:#0b3a6e}
 body:has(#admModal.show),body:has(#modalBackdrop.show),body:has(#infoModal.show){overflow:hidden}
+
+/* Home page photo: default school photo, admin can replace it */
+.hero-banner{min-height:290px}
+.hero-photo{position:absolute;inset:0;z-index:0;background:url(school-building.jpg) center/cover no-repeat}
+.hero-banner::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,#082a52f2 0%,#082a52d9 40%,#082a5273 72%,#082a5230 100%)}
+.hero-banner .hero-art,.hero-banner .hero-glow{display:none}
+.hero-admin{display:none}
+body.is-admin .hero-admin{display:flex;gap:8px;position:absolute;top:14px;right:14px;z-index:3}
+.hero-adm-btn{background:#fff;color:#082a52;border:0;border-radius:6px;padding:8px 12px;font:700 11px Manrope,sans-serif;cursor:pointer;box-shadow:0 2px 8px #0003}
+.hero-adm-btn:hover{background:#f2f6fb}
+.hero-adm-btn:focus-within,.hero-adm-btn:focus-visible{outline:3px solid #e0a80099;outline-offset:2px}
