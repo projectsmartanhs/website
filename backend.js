@@ -58,6 +58,8 @@ B.openLogin=function(){
     if(error){toast(error.message==="Invalid login credentials"?"Incorrect email or password.":error.message);return false}
     await loadProfile();applyRole();await B.pull();toast("Signed in as "+(ROLE_LABEL[B.role]||"user")+".");
   });
+  const m=document.getElementById("admModal"),pb=m&&m.querySelector(".primary-btn");
+  if(m&&pb){m.classList.add("signin");pb.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/></svg> Login'}
 };
 B.signOut=async function(){
   await sb.auth.signOut();

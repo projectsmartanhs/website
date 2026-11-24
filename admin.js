@@ -16,6 +16,7 @@ function restore(s){
 /* generic form modal */
 document.body.insertAdjacentHTML("beforeend",`<div class="modal-backdrop" id="admModal"><div class="modal"><div class="modal-head"><h2 id="admTitle"></h2><button class="icon-btn" id="admClose" type="button" aria-label="Close">×</button></div><form id="admForm"><div id="admFields"></div><div class="adm-actions"><button type="button" class="outline-btn" id="admCancel">Cancel</button><button class="primary-btn">Save</button></div></form></div></div>`);
 function admForm(title,fields,vals,onSave){
+  $("#admModal").classList.remove("signin");$("#admModal .primary-btn").textContent="Save";
   $("#admTitle").textContent=title;
   $("#admFields").innerHTML=fields.map((f,i)=>`<label>${f[0]}${f[1]==="select"?`<select data-f="${i}">${f[2].map(o=>`<option${o===vals[i]?" selected":""}>${escapeHTML(o)}</option>`).join("")}</select>`:`<input data-f="${i}" type="${f[1]||"text"}"${f[1]==="number"?' step="any"':""} value="${escapeHTML(vals[i]??"")}" />`}</label>`).join("");
   admSave=onSave;$("#admModal").classList.add("show");const f=$("#admFields input,#admFields select");f&&f.focus();

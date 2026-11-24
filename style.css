@@ -258,3 +258,10 @@ body:not(.is-admin) .adm,body:not(.is-admin) .adm-tilebar,body:not(.is-admin) .a
 .files-table .muted{font-size:11px}.files-act{white-space:nowrap;text-align:right}.files-act .mini{margin-left:6px}
 .files-act .danger{color:#b23a3a;border-color:#efc9c9}
 @media(max-width:700px){.files-panel .table-wrap{overflow-x:auto}.files-table{min-width:620px}}
+
+/* Login button look: navy, rounded, gold bottom edge, icon + label */
+.login-btn{box-shadow:inset 0 -3px 0 #e0a800}
+#admModal.signin .adm-actions{display:block;margin-top:18px}
+#admModal.signin #admCancel{display:none}
+#admModal.signin .primary-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px 18px;border-radius:10px;font:700 15px Manrope,sans-serif;box-shadow:inset 0 -3px 0 #e0a800,0 4px 10px #173d631a}
+#admModal.signin .primary-btn:focus-visible{outline:3px solid #e0a80099;outline-offset:2px}
