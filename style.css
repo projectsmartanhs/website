@@ -333,3 +333,17 @@ body.is-admin .hero-admin{display:flex;gap:8px;position:absolute;top:14px;right:
 .wx-links a{color:#fff;text-decoration:none;font:700 13px Manrope,sans-serif;border:1px solid #ffffff40;background:#ffffff14;border-radius:8px;padding:10px 14px}.wx-links a:hover{background:#ffffff2a}
 .wx-note{margin:0;padding:6px 28px 22px;font-size:12px;line-height:1.6;color:#8fb2d6}
 @media(max-width:800px){.home-hero{min-height:460px}.home-hero-in{padding:44px 20px}.home-stats{grid-template-columns:repeat(2,1fr);padding:28px 20px}.wx-main{grid-template-columns:1fr}.wx-days{grid-template-columns:repeat(3,1fr)}}
+
+/* Top banner: scrolling Project SMART-ANHS line (replaces the static line under the school name) */
+.site-title em{display:none}
+.top-ticker{overflow:hidden;background:linear-gradient(90deg,#052662,#032155 55%,#041f55);border-bottom:3px solid #f2b705;color:#fff;height:46px;display:flex;align-items:center}
+.ticker-track{display:flex;width:max-content;animation:ticker 45s linear infinite}
+.top-ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-group{display:flex;flex:none}
+.ticker-group span{flex:none;padding-right:120px;font:700 14px/1 Manrope,"DM Sans",sans-serif;letter-spacing:.1px;white-space:nowrap}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:560px){.top-ticker{height:40px}.ticker-group span{font-size:13px;padding-right:80px}}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none;width:auto;margin:auto}.ticker-group+.ticker-group,.ticker-group span+span{display:none}.ticker-group span{padding:0 14px;white-space:normal;text-align:center}}
+
+/* Removed from view: school year chip, notification bell, and user avatar */
+.crumb-right{display:none!important}
