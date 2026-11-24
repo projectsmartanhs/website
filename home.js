@@ -13,11 +13,6 @@ el.innerHTML=`
     <span class="home-pill"><i></i>DepEd Region IV-B MIMAROPA · Division of Romblon</span>
     <h2>ALCANTARA<em>NATIONAL HIGH SCHOOL</em></h2>
     <p>Nurturing Minds, Cultivating Character, Empowering Romblomanon Youth. An institution shaping empowered, productive, and values-driven Romblomanon learners since 1968.</p>
-    <div class="home-cta">
-      <button type="button" class="cta-gold" data-home="project">DISCOVER SCHOOL PROFILE →</button>
-      <button type="button" class="cta-ghost" data-home="reports">Latest School News</button>
-      <button type="button" class="cta-ghost" data-home="admin">Organizational Structure</button>
-    </div>
   </div>
   <div class="hero-admin"><label class="hero-adm-btn">Change photo<input type="file" id="heroFile" accept="image/*" hidden></label><button type="button" class="hero-adm-btn" id="heroReset">Use default</button></div>
 </div>
