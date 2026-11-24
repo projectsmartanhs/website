@@ -18,6 +18,16 @@ el.innerHTML=`
 </div>
 <div class="home-wx"><div class="wx" id="wx"><p class="wx-load">Loading weather for Alcantara…</p></div></div>`;
 content.parentNode.insertBefore(el,content);
+/* the tagline is click-to-edit for admins, saved with the other editable texts */
+const tag=el.querySelector(".home-hero-in p");
+if(tag&&typeof TE!=="undefined"&&typeof texts!=="undefined"){
+  const o={el:tag,key:"home|tagline",orig:tag.textContent.trim()};
+  TE.push(o);
+  if(texts[o.key]!==undefined)tag.textContent=texts[o.key];
+  tag.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();tag.blur()}});
+  tag.addEventListener("blur",()=>{if(!isAdmin)return;const t=tag.textContent.trim();if(t!==(texts[o.key]??o.orig)){texts[o.key]=t;persist()}});
+  if(isAdmin){tag.setAttribute("contenteditable","true");tag.classList.add("adm-edit")}
+}
 const sync=()=>{el.hidden=!page.classList.contains("active")};
 new MutationObserver(sync).observe(page,{attributes:true,attributeFilter:["class"]});sync();
 /* hero buttons reuse the app's own page links */
