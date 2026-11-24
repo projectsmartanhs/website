@@ -18,8 +18,16 @@ document.body.insertAdjacentHTML("beforeend",`<div class="modal-backdrop" id="ad
 function admForm(title,fields,vals,onSave){
   $("#admModal").classList.remove("signin");$("#admModal .primary-btn").textContent="Save";
   $("#admTitle").textContent=title;
-  $("#admFields").innerHTML=fields.map((f,i)=>`<label>${f[0]}${f[1]==="select"?`<select data-f="${i}">${f[2].map(o=>`<option${o===vals[i]?" selected":""}>${escapeHTML(o)}</option>`).join("")}</select>`:`<input data-f="${i}" type="${f[1]||"text"}"${f[1]==="number"?' step="any"':""} value="${escapeHTML(vals[i]??"")}" />`}</label>`).join("");
-  admSave=onSave;$("#admModal").classList.add("show");const f=$("#admFields input,#admFields select");f&&f.focus();
+  $("#admFields").innerHTML=fields.map((f,i)=>`<label>${f[0]}${f[1]==="select"?`<select data-f="${i}">${f[2].map(o=>`<option${o===vals[i]?" selected":""}>${escapeHTML(o)}</option>`).join("")}</select>`:(!f[1]||f[1]==="text")?`<textarea data-f="${i}" rows="1">${escapeHTML(vals[i]??"")}</textarea>`:`<input data-f="${i}" type="${f[1]}"${f[1]==="number"?' step="any"':""} value="${escapeHTML(vals[i]??"")}" />`}</label>`).join("");
+  admSave=onSave;$("#admModal").classList.add("show");
+  $$("#admFields textarea").forEach(t=>{
+    const fit=()=>{t.style.height="auto";t.style.height=(t.scrollHeight+2)+"px"};
+    t.addEventListener("input",fit);
+    t.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();$("#admForm").requestSubmit()}});
+    t.addEventListener("paste",()=>setTimeout(()=>{t.value=t.value.replace(/\s*\n+\s*/g," ");fit()}));
+    fit();
+  });
+  $("#admFields").scrollTop=0;const f=$("#admFields textarea,#admFields input,#admFields select");f&&f.focus();
 }
 const admClose=()=>$("#admModal").classList.remove("show");
 $("#admClose").onclick=$("#admCancel").onclick=admClose;
