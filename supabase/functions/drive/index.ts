@@ -17,7 +17,7 @@ const UPLOAD_ROLES = ["admin", "school_head", "teacher", "staff"];
 const DELETE_ROLES = ["admin", "school_head"];
 const MAX_BYTES = 25 * 1024 * 1024; // 25 MB per file
 const FOLDER_NAME = Deno.env.get("DRIVE_FOLDER_NAME") || "SMART-ANHS Files";
-const ORIGIN = Deno.env.get("ALLOWED_ORIGIN") || "*";
+const ORIGIN = Deno.env.get("ALLOWED_ORIGIN") || "https://projectsmartanhs.github.io";
 
 const cors = {
   "Access-Control-Allow-Origin": ORIGIN,
