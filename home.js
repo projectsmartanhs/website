@@ -34,12 +34,13 @@ new MutationObserver(sync).observe(page,{attributes:true,attributeFilter:["class
 el.addEventListener("click",e=>{const b=e.target.closest("[data-home]");if(!b)return;
   const t=document.querySelector('[data-go="'+b.dataset.home+'"]');if(t)t.click()});
 
-/* footer: link to the school location on Google Maps (added after the editable texts are registered) */
-const fc=document.querySelector(".site-footer .foot-contact");
-if(fc&&!fc.querySelector(".foot-map")){
-  const li=document.createElement("li");li.className="foot-map";
-  li.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f2b705" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg><a href="https://www.google.com/maps/place/Alcantara+National+High+School/@12.2578906,122.0517105,17.12z/data=!4m6!3m5!1s0x33a4e1ca7c804367:0x8fb541cb60a7b911!8m2!3d12.2578004!4d122.0541852!16s%2Fg%2F11pz53kzd3" target="_blank" rel="noopener">View school location on Google Maps ↗</a>';
-  fc.insertBefore(li,fc.children[1]||null);
+/* footer: the school address opens the location on Google Maps (done after the editable texts are registered) */
+const addr=document.querySelector(".site-footer .foot-contact li span");
+if(addr&&!addr.querySelector("a")){
+  const a=document.createElement("a");a.className="foot-addr";a.target="_blank";a.rel="noopener";
+  a.href="https://www.google.com/maps/place/Alcantara+National+High+School/@12.2578906,122.0517105,17.12z/data=!4m6!3m5!1s0x33a4e1ca7c804367:0x8fb541cb60a7b911!8m2!3d12.2578004!4d122.0541852!16s%2Fg%2F11pz53kzd3";a.title="Open in Google Maps";
+  while(addr.firstChild)a.appendChild(addr.firstChild);addr.appendChild(a);
+  a.addEventListener("click",e=>{if(typeof isAdmin!=="undefined"&&isAdmin)e.preventDefault()}); /* admins click to edit, not to open */
 }
 
 /* ---- weather and hazard card ---- */
