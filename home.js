@@ -4,7 +4,7 @@
 "use strict";
 const page=document.getElementById("page-dashboard"),content=document.querySelector(".main-area .page-content");
 if(!page||!content)return;
-const LAT=12.38,LON=122.07; /* approximate location of Alcantara, Romblon */
+const LAT=12.2578,LON=122.0542; /* Alcantara National High School (from Google Maps) */
 const el=document.createElement("section");el.id="homeLanding";
 el.innerHTML=`
 <div class="home-hero">
@@ -33,6 +33,14 @@ new MutationObserver(sync).observe(page,{attributes:true,attributeFilter:["class
 /* hero buttons reuse the app's own page links */
 el.addEventListener("click",e=>{const b=e.target.closest("[data-home]");if(!b)return;
   const t=document.querySelector('[data-go="'+b.dataset.home+'"]');if(t)t.click()});
+
+/* footer: link to the school location on Google Maps (added after the editable texts are registered) */
+const fc=document.querySelector(".site-footer .foot-contact");
+if(fc&&!fc.querySelector(".foot-map")){
+  const li=document.createElement("li");li.className="foot-map";
+  li.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f2b705" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg><a href="https://www.google.com/maps/place/Alcantara+National+High+School/@12.2578906,122.0517105,17.12z/data=!4m6!3m5!1s0x33a4e1ca7c804367:0x8fb541cb60a7b911!8m2!3d12.2578004!4d122.0541852!16s%2Fg%2F11pz53kzd3" target="_blank" rel="noopener">View school location on Google Maps ↗</a>';
+  fc.insertBefore(li,fc.children[1]||null);
+}
 
 /* ---- weather and hazard card ---- */
 const wx=document.getElementById("wx");
