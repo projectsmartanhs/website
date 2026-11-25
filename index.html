@@ -178,9 +178,9 @@
     </div>
   </div>
   <div class="assistant-panel" id="assistantPanel">
-    <div class="assistant-head"><div class="assistant-avatar">✦</div><div><strong>SMART Assistant</strong><small>Prototype helper · Not connected to AI</small></div><button class="icon-btn" id="closeAssistant">×</button></div>
-    <div class="assistant-body"><div class="assistant-message">Hello! I'm the SMART Assistant interface preview. In the full system, this area can help authorized users summarize validated school data, prepare reports, and explore trends.</div><div class="assistant-note">AI responses are not enabled in this prototype. AI output will be advisory only; final decisions remain with authorized school officials. Connect a secure server-side AI service before deployment.</div></div>
-    <div class="assistant-input"><input disabled placeholder="AI assistant not connected" /><button disabled>↑</button></div>
+    <div class="assistant-head"><div class="assistant-avatar">✦</div><div><strong>SMART Assistant</strong><small id="assistantSub">Sign in to use the assistant</small></div><button class="icon-btn" id="closeAssistant">×</button></div>
+    <div class="assistant-body"><div class="assistant-message">Hello! I can help authorized staff draft memos, minutes, report narratives, and lesson ideas, or organize notes.</div><div class="assistant-note">AI output is advisory only; final decisions remain with authorized school officials. Do not type learner names or LRN. Use codes like "Learner A".</div></div>
+    <form class="assistant-input" id="assistantForm"><input id="assistantText" disabled maxlength="4000" autocomplete="off" placeholder="Sign in with Portal Login to chat" /><button id="assistantSend" disabled>↑</button></form>
   </div>
   <script src="config.js?v=1"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0/dist/umd/supabase.js"></script>
@@ -200,6 +200,7 @@
   <script src="hero.js?v=1"></script>
   <script src="backend.js?v=2"></script>
   <script src="files.js?v=2"></script>
+  <script src="assistant.js?v=1"></script>
   <script src="search.js?v=4"></script>
 </body>
 </html>
